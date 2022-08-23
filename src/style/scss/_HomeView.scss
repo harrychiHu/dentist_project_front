@@ -1,0 +1,230 @@
+/* HomeView ----------------------------------------------------------------------------------------------------- */
+
+#home_header{
+  .carousel-img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+  }
+}
+#home_content{
+  .servers{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 2rem;
+    .servers_card{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      margin-top: 3rem;
+      img{
+        width: 50%;
+        filter: drop-shadow(5px 6px 5px rgba(149, 149, 149, 0.5))
+        
+      }
+      h3{
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        letter-spacing: 0.3em;
+        color: $title;
+      }
+      p{
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        letter-spacing: 0.1em;
+        color: $content;
+        width: 80%;
+        text-align: center;
+      }
+    }
+  }
+}
+#home_timetable{
+  .timetable{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+    h2{
+      font-size: 2.2rem;
+      position: relative;
+      margin-bottom: 2rem;
+      color: $title;
+      &::after{
+        content: '';
+        width: 3rem;
+        height: 0.1rem;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $title;
+      }
+    }
+    .timetable_img{
+      width: 90%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+#home_team{
+  .team{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    h2{
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      color: $title;
+      position: relative;
+      
+      &::after{
+        content: '';
+        width: 3rem;
+        height: 0.1rem;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $title;
+      }
+    }
+    h3{
+      font-size: 1.3rem;
+      color: $content;
+      margin-bottom: 1rem;
+      width: 80%;
+      text-align: center;
+      
+      }
+  }
+}
+
+#home_article{
+  .article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    .article_title{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      h2{
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 2.2rem;
+        color: $title;
+        position: relative;
+        &::after{
+          content: '';
+          width: 3rem;
+          height: 0.1rem;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: $title;
+        }
+      }
+      h3{
+        font-size: 1.3rem;
+        color: $content;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+        }
+    }
+    .article_card{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 80%;
+      .n-card{
+        margin-bottom: 2rem;
+        filter: drop-shadow(3px 4px 3px rgba(149, 149, 149, 0.5));
+        h2{
+          margin-top: 1rem;
+          font-size: 1.5rem;
+          color: $title;
+        }
+        .n-ellipsis{
+          font-size: 1rem;
+          color: $content;
+          height: 2rem;
+          display: block;
+          margin-top: 1rem;
+        }
+        .article_btn{
+          display: flex;
+          justify-content: flex-end;
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include md{
+  #home_header{
+    .carousel-img{
+      height: 25rem;
+    }
+  }
+  #home_content{
+    .servers{
+      flex-direction: row;
+      flex-wrap: wrap;
+      .servers_card{
+        width: 40%;
+      }
+    }
+  }
+  #home_article{
+    .article{
+      .article_card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        .n-card{
+          width: 35%;
+          margin-right: 2rem;
+        }
+      }
+    }
+  }
+}
+@include xl{
+  #home_header{
+    .carousel-img{
+      height: 45rem;
+    }
+  }
+  #home_content{
+    .servers{
+      flex-direction: row;
+      flex-wrap: wrap;
+      .servers_card{
+        width: 25%;
+      }
+    }
+  }
+}

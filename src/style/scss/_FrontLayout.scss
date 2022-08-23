@@ -1,0 +1,268 @@
+/* FrontLayout ----------------------------------------------------------------------------------------------------- */
+
+#header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  h1{
+  a{
+    display:block;
+    background: url('../../assets/LOGO_S.png');
+      width: 200px;
+      height: 41px;
+      text-indent: 101%;
+      white-space: nowrap;
+      overflow: hidden;
+  }
+}
+.menu{
+  display: flex;
+  margin-right: 1rem;
+  .small-menu{
+    margin-top: auto;
+    display: flex;
+    h2{
+      font-size: 1.2rem;
+      color: $content !important;
+      margin-right: 0.5rem;
+    }
+    .hamburger{
+      font-size: 1.5rem;
+      color: $content !important;
+      &:hover{
+      color: $main !important;
+      }
+    }
+  }
+  .big-menu{
+    display: none;
+  }
+  .log_res_btn{
+    display: flex;
+    align-items: center;
+    width: 60%;
+  }
+}
+
+}
+.n-dropdown-menu{
+  .n-dropdown-option{
+    a{
+      color:$content;
+      &:hover{
+        color: $main;
+        border-bottom: 0.1rem solid $main;
+      }
+    }
+  }
+}
+.n-card__content{
+  .n-form{
+    .n-row{
+      .n-col{
+        .res_btn{
+          background-color: $main;
+          color: $text;
+          border: none;
+          font-size: 1rem;
+          border: 1px solid $main;
+          border-radius: 5%;
+          padding: 0.5rem 1rem;
+          &:hover{
+            // background-color: rgba(125, 203, 207, 1);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+.n-popover__content{
+  ul{
+    list-style: none;
+    li{
+      margin-bottom: 0.5rem;
+      a{
+        text-decoration: none;
+        font-size: 1rem;
+        display: block;
+        width: 100%;
+        color:$content;
+        padding-top: 0.5rem;
+        &:hover{
+          border-bottom: 0.1rem solid $main;
+          color: $main;
+          background-color: rgb(243, 243, 245);
+        }
+      }
+      &:last-child{
+        text-align: center;
+        margin-top: 1rem;
+      }
+    }
+    
+  }
+  
+}
+.n-button{
+  &:not(.n-button--disabled){
+    &:hover{
+      background-color: rgba(125, 203, 207, 1)!important;
+      color: $text !important;
+    }
+  }
+}
+
+#footer1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  .now{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h2{
+    font-size: 2.2rem;
+    color: $title;
+    position: relative;
+    margin-bottom: 1rem;
+      &::after{
+      content: '';
+      width: 3rem;
+      height: 0.1rem;
+      background-color: $title;
+      position: absolute;
+      bottom: -0.5rem;
+      right: 50%;
+      transform: translateX(50%);
+      } 
+    }
+    h3{
+    font-size: 1.3rem;
+    color: $content;
+    margin-bottom: 1rem;
+    }
+    a{
+    text-decoration: none;
+    color: $text;
+    display: block;
+    }
+  }
+}
+
+#footer2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $text;
+  font-size: 1rem;
+  .copyright{
+    width: 100%;
+    text-align: center;
+  }
+  .contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .link{
+      width: 50%;
+      text-align: center;
+      a{
+        color: $text;
+        width: 1rem;
+        font-size: 1.5rem;
+        transition: all 1s;
+        margin-right: 0.5rem;
+        &:hover{
+          color: $main;
+        }
+      }
+    }
+    
+  }
+}
+  .n-icon{
+    margin-right: 0.2rem;
+  }
+
+
+@include md{
+  #footer2{
+    flex-direction: row;
+    .footer2-wrap{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 0;
+      .copyright{
+        width: 50%;
+        text-align: left;
+      }
+      .contact{
+        width: 50%;
+        flex-direction: row;
+        justify-content: flex-end;
+        .link{
+          width: 15%;
+          display: flex;
+          justify-content: flex-start;
+          margin-left: 1rem;
+          a{
+            margin-right: 1rem;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+@include xl {
+  #header{
+    .menu{
+      width: 50%;
+      justify-content: flex-end;
+      .small-menu{
+        display: none;
+      }
+      .big-menu{
+        display: block;
+        .n-menu{
+          a{
+            color: $content;
+            &:hover{
+              color: $main;
+              border-bottom: 0.3rem solid $main;
+            }
+          }
+        }
+      }
+      .log_res_btn{
+        display: flex;
+        align-items: center;
+        width: 10%;
+        justify-content: center;
+      }
+    }
+  }
+  #footer2{
+    .footer2-wrap{
+      .contact{
+        .link{
+          display: block;
+          text-align: end;
+          a{
+            margin: 0.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+

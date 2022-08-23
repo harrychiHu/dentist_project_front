@@ -1,0 +1,103 @@
+/* AdminLayout -------------------------------------------------------------------------------------------- */
+#adminContent{
+  display: flex;
+  height: 100vh;
+  .adminRight{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+
+    .avatarList{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 1rem;
+      .avatarText{
+        margin-right: 1rem;
+      }
+    }
+    .adminWrap{
+      .adminSection{
+        width: 90%;
+        margin: auto;
+      }
+    }
+  }
+  .adminLeft{
+    background-color: $main;
+    width: 40%;
+
+    .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+      h1{
+        a{
+          display:block;
+          background: url('../../assets/LOGO_S.png');
+            width: 200px;
+            height: 41px;
+            text-indent: 101%;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+      }
+    }
+  }
+  .n-menu .n-menu-item-content:not(.n-menu-item-content--disabled).n-menu-item-content--selected:hover::before{
+    background-color: rgb(92, 157, 161);
+  }
+  .n-menu .n-menu-item-content:not(.n-menu-item-content--disabled).n-menu-item-content--selected:hover .n-menu-item-content-header a{
+    color: $text;
+  }
+  .n-menu {
+  margin-top: 1rem;
+  padding: 2rem 0;
+  text-align: center;
+  .n-menu-item-content{
+    margin-top: 2rem;
+    .n-menu-item-content-header{
+      a{
+        color: $text;
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+      }
+    }
+    &:not(.n-menu-item-content--disabled){
+      &:hover{
+        .n-menu-item-content-header{
+          a{
+            color: $text;
+          }
+        }
+        &::before{
+          background-color: rgb(92, 157, 161);
+          cursor: pointer;
+          
+        }
+      }
+    }
+  }
+}
+  
+}
+
+
+
+@include xl{
+  #adminContent{
+    .adminRight{
+      width: 80%;
+      .avatarList{
+        padding-right: 3rem;
+      }
+
+    }
+    .adminLeft{
+      width: 20%;
+
+    }
+  }
+}

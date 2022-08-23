@@ -1,0 +1,165 @@
+/* TeamView ----------------------------------------------------------------------------------------------------- */
+
+#team_header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h2{
+      font-size: 2.2rem;
+      color: $title;
+      position: relative;
+      margin-bottom: 1rem;
+      &::after{
+        content: '';
+        width: 3rem;
+        height: 0.1rem;
+        background-color: $title;
+        position: absolute;
+        bottom: -0.5rem;
+        right: 50%;
+        transform: translateX(50%);
+        } 
+      }
+      h3{
+        font-size: 1.3rem;
+        color: $content;
+        margin-bottom: 1rem;
+        }
+  }
+}
+
+#team_content{
+  .team_row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 0;
+    .n-card {
+      width: 80%;
+      margin-bottom: 2rem;
+      filter: drop-shadow(3px 4px 3px rgba(149, 149, 149, 0.5));
+      h2{
+        font-size: 2.2rem;
+        color: $title;
+        position: relative;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        &::after{
+          content: '';
+          width: 3rem;
+          height: 0.1rem;
+          background-color: $title;
+          position: absolute;
+          bottom: -0.1rem;
+          right: 93%;
+          transform: translateX(50%);
+          } 
+        }
+      p{
+        font-size: 1rem;
+        white-space: pre;
+      }
+    }
+  }
+}
+
+@include md{
+  #team_content{
+    .team_row{
+      flex-direction: row;
+      justify-content: space-around;
+      .n-card{
+        width: 40%;
+        margin-top: 0;
+        h2{
+          &::after{
+            right: 92%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include xl{
+  #team_content{
+    .team_row{
+      .n-card{
+        h2{
+          &::after{
+            right: 94%;
+          }
+        }
+      }
+    }
+  }
+}
+
+// #team_content{
+//   display:flex;
+//   justify-content: center;
+//   align-items: center;
+//   padding: 2rem 0;
+//   .team_row{
+//     display: flex;
+//     flex-direction: column;
+//     .team_col{
+//       margin-bottom: 2rem;
+//       border: 1px solid $content;
+//       border-radius: 2%;
+//       .col_header{
+//         margin-bottom: 1rem;
+//         img{
+//           border-top-left-radius: 2%;
+//           border-top-right-radius: 2%;
+//         }
+//       }
+//       .col_body{
+//         margin-left: 1rem;
+//         margin-bottom: 1rem;
+//         h2{
+//           color: $title;
+//           position: relative;
+//           margin-bottom: 0.5rem;
+//           font-size: 1.5rem;
+//           &::after{
+//             content: '';
+//             width: 2rem;
+//             height: 0.1rem;
+//             background-color: $title;
+//             position: absolute;
+//             bottom:0;
+//             left: 0;
+//           }
+//         }
+//         ul{
+//           list-style: none;
+//           li{
+//             margin-bottom: 0.5rem;
+//             font-size: 1rem;
+//             color: $content;
+//           }
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @include md{
+//   #team_content{
+//     .team_row{
+//       flex-direction: row;
+//       flex-wrap: wrap;
+//       .team_col{
+//         margin-right: 2rem;
+//       }
+//     }
+//   }
+// }

@@ -1,0 +1,22 @@
+/* NotFound ----------------------------------------------------------------------------------------------------- */
+
+#notFound{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  a{
+    text-decoration: none;
+  }
+
+}
+
+
+.n-button{
+  &:not(.n-button--disabled){
+    &:hover{
+      color: $main;
+    }
+  }
+}
+

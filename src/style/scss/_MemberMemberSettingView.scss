@@ -1,0 +1,105 @@
+/* MemberMemberSettingView ------------------------------------------------------------------------------ */
+
+#memberMemberContent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: $title;
+  h1{
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 20rem;
+      height: 0.1rem;
+      background-color: #172137;
+      top: 100%;
+      left: 0;
+    }
+  }
+  .memberList{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2rem;
+    .avatar{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .form{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 1rem;
+      .formContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        p{
+          font-size: 1.2rem;
+          margin-bottom: 1rem;
+          color: $content;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@include md{
+  #memberMemberContent{
+    h1{
+      &::after{
+        content: '';
+        position: absolute;
+        width: 50rem;
+        height: 0.1rem;
+        background-color: #172137;
+        top: 100%;
+        left: 0;
+      }
+    }
+    .memberList{
+      .form{
+        .formContent{
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          p{
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: $content;
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@include xl{
+  #memberMemberContent{
+    h1{
+      &::after{
+        content: '';
+        position: absolute;
+        width: 90rem;
+        height: 0.1rem;
+        background-color: #172137;
+        top: 100%;
+        left: 0;
+      }
+    }
+  }
+}

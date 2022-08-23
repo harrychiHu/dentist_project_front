@@ -1,0 +1,95 @@
+/* ContactView ----------------------------------------------------------------------------------------------------- */
+
+#contact_header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  .title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h2{
+      font-size: 2.2rem;
+      color: $title;
+      position: relative;
+      margin-bottom: 1rem;
+      &::after{
+        content: '';
+        width: 3rem;
+        height: 0.1rem;
+        background-color: $title;
+        position: absolute;
+        bottom: -0.5rem;
+        right: 50%;
+        transform: translateX(50%);
+        } 
+      }
+      h3{
+        font-size: 1.3rem;
+        color: $content;
+        margin-bottom: 1rem;
+        }
+  }
+}
+#contact_content{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  .map{
+    width: 100%;
+    iframe{
+      max-width: 100%;
+    }
+  }
+  .contact_row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    .contact_col{
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+      .n-icon-wrapper{
+        i{
+          margin: auto;
+        }
+      }
+      p{
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: $content;
+      }
+    }
+  }
+}
+
+@include md{
+  #contact_content{
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    .map{
+      width: 50%;
+      margin-right: 2rem;
+    }
+    .contact_row{
+      width: 50%;
+      .contact_col{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .n-icon-wrapper{
+          margin-right: 1rem;
+        }
+        p{
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}

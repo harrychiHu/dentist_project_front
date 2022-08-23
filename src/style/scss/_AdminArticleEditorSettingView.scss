@@ -1,0 +1,34 @@
+/* AdminArticleEditorSettingView ------------------------------------------------------------------------------ */
+
+#ArticleEditor{
+  h1{
+    font-size: 2rem;
+    text-align: center;
+  }
+  .articleForm{
+    margin: auto;
+    .submitButton{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      a{
+        text-decoration: none;
+        button{
+          background-color: $main;
+          color: $text;
+          border: none;
+          font-size: 1rem;
+          border: 1px solid $main;
+          border-radius: 5%;
+          padding: 0.5rem 1rem;
+          &:hover{
+            background-color: rgb(85, 138, 141);
+            color: $text;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+

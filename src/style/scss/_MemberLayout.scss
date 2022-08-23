@@ -1,0 +1,72 @@
+/* _MemberLayout -------------------------------------------------------------------------------------------- */
+
+#memberContent{
+  display: flex;
+  height: 100vh;
+  .memberRight{
+    display: flex;
+    flex-direction: column;
+    .avatarList{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding-right: 1rem;
+      .avatarText{
+        margin-right: 1rem;
+      }
+    }
+    .memberWrap{
+      .memberSection{
+      width: 90%;
+      margin: auto;
+      }
+    }
+  }
+  .memberLeft{
+    .n-layout-sider{
+      background-color: $main;
+    }
+    .n-layout-sider.n-layout-sider--bordered .n-layout-sider__border{
+      background-color: $main;
+    }
+    .n-menu .n-menu-item-content:not(.n-menu-item-content--disabled).n-menu-item-content--selected:hover::before{
+    background-color: rgb(92, 157, 161);
+  }
+    .n-menu .n-menu-item-content:not(.n-menu-item-content--disabled).n-menu-item-content--selected:hover .n-menu-item-content-header a{
+    color: $text;
+  }
+    .n-menu {
+      margin-top: 1rem;
+      padding: 2rem 0;
+      text-align: center;
+    .n-menu-item-content{
+      margin-top: 2rem;
+    .n-menu-item-content__icon{
+      color: $text;
+    }
+    .n-menu-item-content-header{
+      a{
+        color: $text;
+        font-size: 1rem;
+        font-weight: bold;
+        letter-spacing: 0.1em;
+      }
+    }
+    &:not(.n-menu-item-content--disabled){
+      &:hover{
+        .n-menu-item-content-header{
+          a{
+            color: $text;
+          }
+        }
+        &::before{
+          background-color: rgb(92, 157, 161);
+          cursor: pointer;
+          
+        }
+      }
+    }
+  }
+  }
+  }
+}
