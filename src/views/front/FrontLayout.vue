@@ -74,7 +74,7 @@
             </template>
             <n-form
               ref="formRef"
-              :model="model1"
+              :model="loginform"
               :rules="rules"
               label-placement="left"
               label-width="auto"
@@ -83,7 +83,7 @@
             >
               <n-form-item label="帳號" path="account">
                 <n-input
-                  v-model:value="model1.account"
+                  v-model:value="loginform.account"
                   placeholder="請輸入帳號"
                 />
               </n-form-item>
@@ -91,7 +91,7 @@
                 <n-input
                   @input="handlePasswordInput"
                   type="password"
-                  v-model:value="model1.password"
+                  v-model:value="loginform.password"
                   placeholder="請輸入密碼"
                 />
               </n-form-item>
@@ -132,7 +132,7 @@
             </template>
             <n-form
               ref="formRef"
-              :model="model"
+              :model="Resform"
               :rules="rules"
               label-placement="left"
               label-width="auto"
@@ -141,7 +141,7 @@
             >
               <n-form-item label="姓名" path="name">
                 <n-input
-                  v-model:value="model.name"
+                  v-model:value="Resform.name"
                   maxlength="20"
                   minlength="1"
                   placeholder="請輸入姓名"
@@ -149,7 +149,7 @@
               </n-form-item>
               <n-form-item label="帳號" path="account">
                 <n-input
-                  v-model:value="model.account"
+                  v-model:value="Resform.account"
                   maxlength="20"
                   minlength="4"
                   placeholder="請輸入帳號"
@@ -159,7 +159,7 @@
                 <n-input
                   @input="handlePasswordInput"
                   type="password"
-                  v-model:value="model.password"
+                  v-model:value="Resform.password"
                   maxlength="20"
                   minlength="4"
                   placeholder="請輸入密碼"
@@ -172,7 +172,7 @@
                 label="確認密碼"
               >
                 <n-input
-                  v-model:value="model.reenteredPassword"
+                  v-model:value="Resform.reenteredPassword"
                   :disabled="!model.password"
                   type="password"
                   placeholder="請再一次輸入密碼"
@@ -180,14 +180,14 @@
               </n-form-item>
               <n-form-item label="信箱" path="email">
                 <n-input
-                  v-model:value="model.email"
+                  v-model:value="Resform.email"
                   minlength="4"
                   placeholder="請輸入信箱"
                 />
               </n-form-item>
               <n-form-item label="手機號碼" path="phoneNr">
                 <n-input
-                  v-model:value="model.phoneNr"
+                  v-model:value="Resform.phoneNr"
                   maxlength="20"
                   minlength="4"
                   placeholder="請輸入手機號碼"
@@ -316,8 +316,6 @@ const restform1 = () => {
 };
 
 /* 不知為啥一定要有的model ---------------------------------------------------------------------------------------------------- */
-const model = Resform;
-const model1 = loginform;
 
 /* 登入註冊規則 --------------------------------------------------------------------------------------------------------------- */
 const rules = {
