@@ -73,7 +73,7 @@
               <img src="../../assets/LOGO.png" />
             </template>
             <n-form
-              ref="loginform"
+              ref="formRef"
               :model="model1"
               :rules="rules"
               label-placement="left"
