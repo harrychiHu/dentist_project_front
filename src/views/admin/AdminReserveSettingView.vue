@@ -44,7 +44,7 @@
           </n-form-item>
           <n-form-item>
             <p>
-              手機號碼：<span>{{ resevers.user.phoneNr }}</span>
+              手機號碼：<span>{{ resevers[0].user.phoneNr }}</span>
             </p>
           </n-form-item>
           <n-form-item label="預約時間" path="reseverDate">
@@ -111,7 +111,7 @@ const createColumns = () => {
   return [
     {
       title: "訂單ID",
-      key: "_id",
+      key: "user.name",
     },
     {
       title: "編輯",
@@ -165,6 +165,9 @@ const reseverForm = reactive({
   idx: -1,
   show: false,
   showModal: false,
+  name: "",
+  email: "",
+  phoneNr: "",
 });
 
 const openModel = (_id, idx) => {
@@ -174,6 +177,9 @@ const openModel = (_id, idx) => {
     reseverForm.reseverShow = resevers[idx].reseverShow;
     reseverForm.reseverCategory = resevers[idx].reseverCategory;
     reseverForm.reseverDate = new Date(resevers[idx].reseverDate);
+    reseverForm.name = resevers[idx].name;
+    reseverForm.email = resevers[idx].email;
+    reseverForm.phoneNr = resevers[idx].phoneNr;
   }
   reseverForm.showModal = true;
   reseverForm.idx;
