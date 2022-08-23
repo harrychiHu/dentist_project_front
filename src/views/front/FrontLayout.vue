@@ -73,6 +73,7 @@
               <img src="../../assets/LOGO.png" />
             </template>
             <n-form
+              ref="formRef"
               :model="model1"
               :rules="rules"
               label-placement="left"
@@ -130,6 +131,7 @@
               <img src="../../assets/LOGO.png" />
             </template>
             <n-form
+              ref="formRef"
               :model="model"
               :rules="rules"
               label-placement="left"
@@ -284,7 +286,7 @@ const rPasswordFormItemRef = ref(null);
 
 const show = ref(false);
 const router = useRouter();
-// const formRef = ref(null);
+const formRef = ref(null);
 
 /* 註冊及登入空白資料 ---------------------------------------------------------- */
 const Resform = reactive({
