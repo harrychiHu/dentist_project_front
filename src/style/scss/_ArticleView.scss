@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   padding: 2rem 0;
+  flex-direction: column;
   .title{
     display: flex;
     justify-content: center;
@@ -35,25 +36,34 @@
 }
 
 #articleContent{
-  margin: 2rem 0;
-  .content{
+  .article_row{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    .header{
+    padding: 2rem 0;
+    .n-card{
       width: 80%;
-
-    }
-    .body{
-      width: 80%;
-
-      .n-ellipsis{
-        max-width: 20rem;
-      }
-      .article_btn{
-        margin-top: 1rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: flex-start;
+      .n-card__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 0;
+        h2{
+          margin: 1rem 0;
+          font-size: 1.4rem;
+        }
+        p{
+          max-width: 100%;
+          font-size: 1rem;
+        }
+        .article_btn{
+          margin: 1rem 0;
+          text-align: right;
+        }
       }
     }
   }
@@ -61,23 +71,85 @@
 
 @include md{
   #articleContent{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .content{
-      .header{
-        width: 90%;
-      }
-      .body{
-        width: 90%;
-        .n-ellipsis{
-          max-width: 50rem;
-        }
-        .article_btn{
-          margin-top: 1rem;
-          text-align: right;
-        }
+    .article_row{
+      .n-card{
+        width: 60%;
       }
     }
+
   }
 }
+
+@include xl{
+  #articleContent{
+    .article_row{
+      .n-card{
+        width: 50%;
+      }
+    }
+
+  }
+}
+
+// #articleContent{
+//   margin: 2rem 0;
+//   .content{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     margin-bottom: 2rem;
+//     .header{
+//       width: 80%;
+
+//     }
+//     .body{
+//       width: 80%;
+
+//       .n-ellipsis{
+//         max-width: 20rem;
+//       }
+//       .article_btn{
+//         margin-top: 1rem;
+//       }
+//     }
+//   }
+// }
+
+// @include md{
+//   #articleContent{
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     flex-direction: column;
+//     .content{
+//       .header{
+//         width: 90%;
+//       }
+//       .body{
+//         width: 90%;
+//         .n-ellipsis{
+//           max-width: 40rem;
+//         }
+//         .article_btn{
+//           margin-top: 1rem;
+//           text-align: right;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// @include xl{
+//   #articleContent{
+//     .content{
+//       .body{
+//         .n-ellipsis{
+//           max-width: 60rem;
+//           line-clamp: "2";
+//         }
+//       }
+//     }
+//   }
+
+// }

@@ -22,6 +22,7 @@
         <n-form
           class="reseverForm"
           ref="formRef"
+          :rules="rules"
           :model="reseverForm"
           label-placement="left"
           label-width="auto"
@@ -32,21 +33,6 @@
           }"
           @submit.prevent="submitForm"
         >
-          <n-form-item>
-            <p>
-              姓名：<span>{{ resevers[0].user.name }}</span>
-            </p>
-          </n-form-item>
-          <n-form-item>
-            <p>
-              信箱：<span>{{ resevers[0].user.email }}</span>
-            </p>
-          </n-form-item>
-          <n-form-item>
-            <p>
-              手機號碼：<span>{{ resevers[0].user.phoneNr }}</span>
-            </p>
-          </n-form-item>
           <n-form-item label="預約時間" path="reseverDate">
             <n-date-picker
               v-model:value="reseverForm.reseverDate"
@@ -61,7 +47,6 @@
               :options="reseverCategories"
             />
           </n-form-item>
-
           <n-form-item label="備註" path="reseverDescription">
             <n-input
               v-model:value="reseverForm.reseverDescription"
@@ -75,7 +60,7 @@
               <n-icon :component="TrashBinOutline" />
             </template>
           </n-form-item>
-          <n-form-item label="訂單狀況" path="reseverShow:">
+          <n-form-item label="訂單狀況" path="reseverShow">
             <n-select
               v-model:value="reseverForm.reseverShow"
               placeholder="選擇訂單狀況"
@@ -100,18 +85,76 @@
 
 <script setup>
 import { h, reactive, ref } from "vue";
-import { NButton, NIcon } from "naive-ui";
+import { NButton, NIcon, NGradientText } from "naive-ui";
 import Swal from "sweetalert2";
 import { apiAuth } from "@/plugins/axios";
 
 const bodyStyle = { width: "600px" };
 const size = ref("medium");
+const formRef = ref(null);
+
+const reseverForm = reactive({
+  _id: "",
+  reseverDate: Date.now(),
+  reseverCategory: "",
+  reseverDescription: "",
+  reseverShow: "",
+  idx: -1,
+  show: false,
+  showModal: false,
+});
+
+const openModel = (_id, idx) => {
+  reseverForm._id = _id;
+  if (idx > -1) {
+    reseverForm.reseverDescription = resevers[idx].reseverDescription;
+    reseverForm.reseverShow = resevers[idx].reseverShow;
+    reseverForm.reseverCategory = resevers[idx].reseverCategory;
+    reseverForm.reseverDate = new Date(resevers[idx].reseverDate);
+  }
+  reseverForm.showModal = true;
+  reseverForm.idx;
+};
 
 const createColumns = () => {
   return [
     {
       title: "會員姓名",
       key: "user.name",
+    },
+    {
+      title: "訂單狀況",
+      key: "reseverShow",
+      render(row) {
+        if (row.reseverShow === "等待") {
+          return h(
+            NGradientText,
+            {
+              type: "success",
+              size: "small",
+            },
+            { default: () => "等待" }
+          );
+        } else if (row.reseverShow === "成功") {
+          return h(
+            NGradientText,
+            {
+              type: "info",
+              size: "small",
+            },
+            { default: () => "成功" }
+          );
+        } else {
+          return h(
+            NGradientText,
+            {
+              type: "error",
+              size: "small",
+            },
+            { default: () => "失敗" }
+          );
+        }
+      },
     },
     {
       title: "編輯",
@@ -147,43 +190,18 @@ const createColumns = () => {
     },
   ];
 };
-// const users = reactive({
-//   _id: "",
-//   account: "",
-//   email: "",
-//   phoneNr: "",
-//   name: "",
-// });
+
 const resevers = reactive([]);
 
-const reseverForm = reactive({
-  _id: "",
-  reseverDate: Date.now(),
-  reseverCategory: "",
-  reseverDescription: "",
-  reseverShow: "",
-  idx: -1,
-  show: false,
-  showModal: false,
-  name: "",
-  email: "",
-  phoneNr: "",
-});
-
-const openModel = (_id, idx) => {
-  reseverForm._id = _id;
-  if (idx > -1) {
-    reseverForm.reseverDescription = resevers[idx].reseverDescription;
-    reseverForm.reseverShow = resevers[idx].reseverShow;
-    reseverForm.reseverCategory = resevers[idx].reseverCategory;
-    reseverForm.reseverDate = new Date(resevers[idx].reseverDate);
-    reseverForm.name = resevers[idx].name;
-    reseverForm.email = resevers[idx].email;
-    reseverForm.phoneNr = resevers[idx].phoneNr;
-  }
-  reseverForm.showModal = true;
-  reseverForm.idx;
+const rules = {
+  reseverDate: {
+    required: true,
+  },
+  reseverCategory: {
+    required: true,
+  },
 };
+
 const reseverShows = [
   {
     label: "成功",
@@ -240,6 +258,7 @@ const submitForm = async () => {
     });
     reseverForm.showModal = false;
   } catch (error) {
+    console.log(error);
     Swal.fire({
       icon: "error",
       title: "失敗",
@@ -259,11 +278,12 @@ const delModel = (id) => {
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     confirmButtonText: "對，刪除!",
+    cancelButtonText: "取消!",
   })
     .then(async (result) => {
-      await apiAuth.delete("/resevers/" + id);
       if (result.isConfirmed) {
-        Swal.fire("刪除成功", "success");
+        await apiAuth.delete("/resevers/" + id);
+        Swal.fire("刪除成功", "成功");
       }
       init();
     })
@@ -275,32 +295,14 @@ const delModel = (id) => {
       });
     });
 };
-
-// const init = async () => {
-//   try {
-//     const { data } = await apiAuth.get("./resevers/all");
-//     resevers.push(...data.result);
-//     // console.log(data.result);
-//   } catch (error) {
-//     Swal.fire({
-//       icon: "error",
-//       title: "失敗",
-//       text: error.isAxiosError ? error.response.data.message : error.message,
-//     });
-//   }
-// };
-// init();
-
 const init = async () => {
   try {
+    let idx = 0;
     const { data } = await apiAuth.get("./resevers/get");
     resevers.push(...data.result);
-    // users._id = data.result._id;
-    // users.account = data.result.account;
-    // users.email = data.result.email;
-    // users.phoneNr = data.result.phoneNr;
-    // users.name = data.result.name;
-    console.log(data.result);
+    resevers.forEach((item) => {
+      item.idx = idx++;
+    });
   } catch (error) {
     Swal.fire({
       icon: "error",
@@ -311,7 +313,7 @@ const init = async () => {
 };
 init();
 
-const pagination = { pageSize: 5 };
+const pagination = { pageSize: 8 };
 
 const columns = createColumns({});
 </script>

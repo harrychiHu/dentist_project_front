@@ -1645,6 +1645,10 @@ img {
       -ms-flex-align: center;
           align-items: center;
   padding: 2rem 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 #articleHeader .title {
   display: -webkit-box;
@@ -1684,10 +1688,7 @@ img {
   margin-bottom: 1rem;
 }
 
-#articleContent {
-  margin: 2rem 0;
-}
-#articleContent .content {
+#articleContent .article_row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1701,43 +1702,51 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 2rem 0;
 }
-#articleContent .content .header {
+#articleContent .article_row .n-card {
   width: 80%;
+  margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
-#articleContent .content .body {
-  width: 80%;
+#articleContent .article_row .n-card .n-card__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 0;
 }
-#articleContent .content .body .n-ellipsis {
-  max-width: 20rem;
+#articleContent .article_row .n-card .n-card__content h2 {
+  margin: 1rem 0;
+  font-size: 1.4rem;
 }
-#articleContent .content .body .article_btn {
-  margin-top: 1rem;
+#articleContent .article_row .n-card .n-card__content p {
+  max-width: 100%;
+  font-size: 1rem;
+}
+#articleContent .article_row .n-card .n-card__content .article_btn {
+  margin: 1rem 0;
+  text-align: right;
 }
 
 @media (min-width: 768px) {
-  #articleContent {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+  #articleContent .article_row .n-card {
+    width: 60%;
   }
-  #articleContent .content .header {
-    width: 90%;
-  }
-  #articleContent .content .body {
-    width: 90%;
-  }
-  #articleContent .content .body .n-ellipsis {
-    max-width: 50rem;
-  }
-  #articleContent .content .body .article_btn {
-    margin-top: 1rem;
-    text-align: right;
+}
+@media (min-width: 1200px) {
+  #articleContent .article_row .n-card {
+    width: 50%;
   }
 }

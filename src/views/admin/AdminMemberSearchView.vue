@@ -3,7 +3,11 @@
     <h1>會員資料</h1>
     <div class="memberList">
       <div class="avatar">
-        <n-avatar round :size="150" :src="avatar" />
+        <n-avatar
+          round
+          :size="150"
+          :src="'https://source.boringavatars.com/beam/120/' + users.account"
+        />
       </div>
       <div class="form">
         <div class="formContent">
@@ -25,15 +29,11 @@
   </section>
 </template>
 <script setup>
-import { useUserStore } from "@/stores/user";
-import { storeToRefs } from "pinia";
 import { reactive } from "vue";
 import { apiAuth } from "@/plugins/axios";
 import Swal from "sweetalert2";
 import { useRoute } from "vue-router";
 
-const user = useUserStore();
-const { avatar } = storeToRefs(user);
 const router = useRoute();
 const users = reactive({
   _id: "",

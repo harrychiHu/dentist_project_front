@@ -54,6 +54,7 @@
             v-model:value="reseverForm.reseverDate"
             type="datetime"
             clearable
+            disabled="true"
           />
         </n-form-item>
         <n-form-item label="選擇服務" path="reseverCategory">
@@ -61,6 +62,7 @@
             v-model:value="reseverForm.reseverCategory"
             placeholder="選擇服務"
             :options="reseverCategories"
+            disabled="true"
           />
         </n-form-item>
 
@@ -69,6 +71,7 @@
             v-model:value="reseverForm.reseverDescription"
             placeholder="可以在這寫下備註"
             type="textarea"
+            disabled="true"
             :autosize="{
               minRows: 3,
             }"
@@ -131,7 +134,7 @@ const createColumns = () => {
     },
     {
       title: "預約狀況",
-      key: "articleShow",
+      key: "reseverShow",
       render(row) {
         if (row.reseverShow === "等待") {
           return h(
@@ -183,7 +186,7 @@ const createColumns = () => {
 const init = async () => {
   try {
     let idx = 0;
-    const { data } = await apiAuth.get("./resevers/get");
+    const { data } = await apiAuth.get("/resevers/catch");
     resevers.push(...data.result);
     resevers.forEach((item) => {
       item.idx = idx++;

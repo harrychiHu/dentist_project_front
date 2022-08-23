@@ -173,7 +173,7 @@
               >
                 <n-input
                   v-model:value="Resform.reenteredPassword"
-                  :disabled="!model.password"
+                  :disabled="!Resform.password"
                   type="password"
                   placeholder="請再一次輸入密碼"
                 />

@@ -269,17 +269,18 @@ const submitForm = async () => {
 
 const delModel = (id) => {
   Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    title: "確定刪除嗎?",
+    text: "刪除後無法回復!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!",
+    confirmButtonText: "對，刪除!",
+    cancelButtonText: "取消!",
   })
     .then(async (result) => {
-      await apiAuth.delete("/doctors/" + id);
       if (result.isConfirmed) {
+        await apiAuth.delete("/doctors/" + id);
         Swal.fire("Deleted!", "Your file has been deleted.", "success");
       }
       init();

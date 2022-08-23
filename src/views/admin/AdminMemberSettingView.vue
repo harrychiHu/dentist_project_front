@@ -99,10 +99,11 @@ const delModel = (id) => {
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
     confirmButtonText: "對，刪除!",
+    cancelButtonText: "取消!",
   })
     .then(async (result) => {
-      await apiAuth.delete("/users/" + id);
       if (result.isConfirmed) {
+        await apiAuth.delete("/users/" + id);
         Swal.fire("刪除成功", "success");
       }
       init();

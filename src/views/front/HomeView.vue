@@ -123,7 +123,7 @@ const init = async () => {
     Swal.fire({
       icon: "error",
       title: "失敗",
-      text: "取得商品資料失敗",
+      text: "取得圖片資料失敗",
     });
     router.go(-1);
   }
@@ -138,7 +138,7 @@ const init1 = async () => {
     Swal.fire({
       icon: "error",
       title: "失敗",
-      text: "取得商品資料失敗",
+      text: "取得文章資料失敗",
     });
     router.go(-1);
   }

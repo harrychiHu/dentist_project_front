@@ -52,6 +52,16 @@ const router = createRouter({
           }
         },
         {
+          path: 'article-look/:id',
+          name: 'article-look',
+          component: () => import('@/views/front/ArticleLookView.vue'),
+          meta: {
+            title: '喜樂芽牙科 | 文章查看',
+            login:false,
+            admin:false
+          }
+        },
+        {
           path: 'contact',
           name: 'contact',
           component: () => import('@/views/front/ContactView.vue'),
