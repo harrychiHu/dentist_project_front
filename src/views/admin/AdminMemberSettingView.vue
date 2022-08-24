@@ -45,26 +45,15 @@ const createColumns = () => {
           NButton,
           {
             size: "small",
+            strong: true,
+            tertiary: true,
             onClick: () => member(row._id),
+            class: "bg-check",
           },
           { default: renderIcon(SearchIcon) }
         );
       },
     },
-    // {
-    //   title: "動作",
-    //   key: "actions",
-    //   render(row) {
-    //     return h(
-    //       NButton,
-    //       {
-    //         size: "small",
-    //         onClick: () => sendEmail(row._id),
-    //       },
-    //       { default: () => "Send Email" }
-    //     );
-    //   },
-    // },
     {
       title: "刪除",
       key: "del",
@@ -75,6 +64,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             size: "small",
+            class: "bg-del",
             onClick: () => delModel(row._id),
           },
           { default: () => "刪除" }

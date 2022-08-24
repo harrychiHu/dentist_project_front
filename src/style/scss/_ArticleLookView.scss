@@ -1,0 +1,58 @@
+/* AdminLayout -------------------------------------------------------------------------------------------- */
+
+#articlelook{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 2rem 0;
+  .articleWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    .articlePic{
+      margin: 1rem 0;
+    }
+    .articleTitle{
+      h2{
+        margin-bottom: 1rem;
+        font-size: 2rem;
+        color: $title;
+      }
+      p{
+        font-size: 1rem;
+        color: $content;
+      }
+    }
+    .articleText{
+      h3{
+        background-color: $bg;
+        padding: 1rem;
+        color: $title;
+        line-height: 2em;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+      p{
+        font-size: 1rem;
+        line-height: 2em;
+        color: $content;
+      }
+    }
+  }
+}
+
+@include md{
+  #articlelook{
+    .articleWrap{
+      width: 60%;
+      .articleTitle{
+        p{
+          text-align: center;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <template>
   <section id="AdminReserveSetting">
-    <h1>會員管理</h1>
+    <h1>預約管理</h1>
     <div class="AdminResFormContent">
       <div>
         <n-data-table
@@ -73,7 +73,7 @@
           >
             <a href="#admin/admin-reserve-setting">
               <n-spin :show="reseverForm.show">
-                <button type="submit" class="saveBtn">保存</button>
+                <button type="submit" class="saveBtnRes">保存</button>
               </n-spin>
             </a>
           </div>
@@ -166,6 +166,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             size: "small",
+            class: "bg-editor",
             onClick: () => openModel(row._id, row.idx),
           },
           { default: () => "編輯" }
@@ -182,6 +183,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             size: "small",
+            class: "bg-del",
             onClick: () => delModel(row._id),
           },
           { default: () => "刪除" }

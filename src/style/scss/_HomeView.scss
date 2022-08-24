@@ -8,37 +8,61 @@
   }
 }
 #home_content{
+  padding: 4rem 0;
   .servers{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-bottom: 2rem;
-    .servers_card{
+    .serversTitle{
+      h2{
+        font-size: 2.2rem;
+        position: relative;
+        color: $title;
+        margin-bottom: 1rem;
+        &::after{
+          content: '';
+          width: 3rem;
+          height: 0.1rem;
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          transform: translateX(-50%);
+          background-color: $title;
+        }
+      }
+    }
+    .servers_row{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 80%;
-      margin-top: 3rem;
-      img{
-        width: 50%;
-        filter: drop-shadow(5px 6px 5px rgba(149, 149, 149, 0.5))
-        
-      }
-      h3{
-        font-size: 1.5rem;
-        margin-top: 1rem;
-        letter-spacing: 0.3em;
-        color: $title;
-      }
-      p{
-        font-size: 1rem;
-        margin-top: 0.5rem;
-        letter-spacing: 0.1em;
-        color: $content;
+      .servers_card{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 80%;
-        text-align: center;
+        margin-top: 1rem;
+        img{
+          width: 50%;
+          filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3))
+          
+        }
+        h3{
+          font-size: 1.5rem;
+          margin-top: 1rem;
+          letter-spacing: 0.3em;
+          color: $title;
+        }
+        p{
+          font-size: 1rem;
+          margin-top: 0.5rem;
+          letter-spacing: 0.1em;
+          color: $content;
+          width: 80%;
+          text-align: center;
+        }
       }
     }
   }
@@ -50,6 +74,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 3rem;
+    margin-bottom: 3rem;
     h2{
       font-size: 2.2rem;
       position: relative;
@@ -76,6 +101,9 @@
 }
 
 #home_team{
+  background: url('../../assets/home/team01.png') no-repeat center/cover;
+  background-attachment: fixed;
+  padding: 3rem 0;
   .team{
     display: flex;
     justify-content: center;
@@ -86,8 +114,8 @@
     h2{
       margin-top: 2rem;
       margin-bottom: 1rem;
-      font-size: 2.2rem;
-      color: $title;
+      font-size: 2.5rem;
+      color: $text;
       position: relative;
       
       &::after{
@@ -98,16 +126,23 @@
         top: 100%;
         left: 50%;
         transform: translateX(-50%);
-        background-color: $title;
+        background-color: $text;
       }
     }
     h3{
-      font-size: 1.3rem;
-      color: $content;
-      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: $text;
       width: 80%;
       text-align: center;
-      
+      }
+      .n-button{
+        margin-top: 2rem;
+        padding-top: 1.8rem;
+        padding-bottom: 1.8rem;
+        .n-button__content{
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
       }
   }
 }
@@ -157,7 +192,7 @@
       width: 80%;
       .n-card{
         margin-bottom: 2rem;
-        filter: drop-shadow(3px 4px 3px rgba(149, 149, 149, 0.5));
+        filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
         h2{
           margin-top: 1rem;
           font-size: 1.5rem;
@@ -188,10 +223,13 @@
   }
   #home_content{
     .servers{
-      flex-direction: row;
-      flex-wrap: wrap;
-      .servers_card{
-        width: 40%;
+      .servers_row{
+        flex-direction: row;
+        flex-wrap: wrap;
+        .servers_card{
+          width: 40%;
+
+        }
       }
     }
   }
@@ -220,10 +258,10 @@
   }
   #home_content{
     .servers{
-      flex-direction: row;
-      flex-wrap: wrap;
-      .servers_card{
-        width: 25%;
+      .servers_row{
+        .servers_card{
+          width: 25%;
+        }
       }
     }
   }

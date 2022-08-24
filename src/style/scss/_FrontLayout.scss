@@ -70,7 +70,7 @@
           border-radius: 5%;
           padding: 0.5rem 1rem;
           &:hover{
-            // background-color: rgba(125, 203, 207, 1);
+            background-color: rgba(125, 203, 207, 1);
             cursor: pointer;
           }
         }
@@ -106,14 +106,14 @@
   }
   
 }
-.n-button{
-  &:not(.n-button--disabled){
-    &:hover{
-      background-color: rgba(125, 203, 207, 1)!important;
-      color: $text !important;
-    }
-  }
-}
+// .n-button{
+//   &:not(.n-button--disabled){
+//     &:hover{
+//       background-color: rgba(125, 203, 207, 1)!important;
+//       color: $text !important;
+//     }
+//   }
+// }
 
 #footer1{
   display: flex;
@@ -155,24 +155,21 @@
 }
 
 #footer2{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: $text;
-  font-size: 1rem;
-  .copyright{
-    width: 100%;
-    text-align: center;
-  }
   .contact{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    color: $text;
+    padding: 2rem 0;
+    .tel{
+      display: flex;
+      font-size: 1rem;
+      p{
+        margin-right: 1rem;
+      }
+    }
     .link{
-      width: 50%;
-      text-align: center;
       a{
         color: $text;
         width: 1rem;
@@ -184,41 +181,27 @@
         }
       }
     }
-    
   }
 }
   .n-icon{
     margin-right: 0.2rem;
   }
 
+#footer3{
+  .copyright{
+    text-align: center;
+    color: $text;
+    padding: 1rem 0;
+    font-size: 1rem;
+  }
+}
+
 
 @include md{
   #footer2{
-    flex-direction: row;
-    .footer2-wrap{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2rem 0;
-      .copyright{
-        width: 50%;
-        text-align: left;
-      }
-      .contact{
-        width: 50%;
-        flex-direction: row;
-        justify-content: flex-end;
-        .link{
-          width: 15%;
-          display: flex;
-          justify-content: flex-start;
-          margin-left: 1rem;
-          a{
-            margin-right: 1rem;
-          }
-        }
-
-      }
+    .contact{
+      flex-direction: row;
+      justify-content: space-around;
     }
   }
 }
@@ -248,19 +231,6 @@
         align-items: center;
         width: 10%;
         justify-content: center;
-      }
-    }
-  }
-  #footer2{
-    .footer2-wrap{
-      .contact{
-        .link{
-          display: block;
-          text-align: end;
-          a{
-            margin: 0.5rem;
-          }
-        }
       }
     }
   }

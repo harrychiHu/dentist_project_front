@@ -12,34 +12,39 @@
     </section>
     <section class="bg" id="home_content">
       <div class="servers section">
-        <div class="servers_card">
-          <img src="../../assets/home/server01.png" />
-          <h3>家庭牙科</h3>
-          <p>
-            家庭牙科以推動全人照護醫療為出發點，以病患為治療中心，提供患者全方位的牙醫醫療諮詢與服務，使病患獲得整體性的口腔治療計畫及照護
-          </p>
+        <div class="serversTitle">
+          <h2>服務項目</h2>
         </div>
-        <div class="servers_card">
-          <img src="../../assets/home/server02.png" />
-          <h3>美容牙科</h3>
-          <p>
-            恢復牙體的形態、功能與美觀之牙科治療，並提供病人口腔衛教，牙齒形態、咬合功能及美觀重建發展全方位美容牙科治療
-          </p>
-        </div>
-        <div class="servers_card">
-          <img src="../../assets/home/server03.png" />
-          <h3>人工植牙</h3>
-          <p>
-            以外科手術植入齒槽骨中，待人工牙根與齒槽骨緊密結合後，便具有類似原牙齒牙根的功能
-          </p>
-        </div>
-        <div class="servers_card">
-          <img src="../../assets/home/server04.png" />
-          <h3>齒顎矯正</h3>
-          <p>
-            治療不整齊的牙齒排列及不和諧的上下顎骨，以達
-            到符合「美觀、功能及健康」的顏面齒顎口腔系統
-          </p>
+        <div class="servers_row">
+          <div class="servers_card">
+            <img src="../../assets/home/server01.png" />
+            <h3>家庭牙科</h3>
+            <p>
+              家庭牙科以推動全人照護醫療為出發點，以病患為治療中心，提供患者全方位的牙醫醫療諮詢與服務，使病患獲得整體性的口腔治療計畫及照護
+            </p>
+          </div>
+          <div class="servers_card">
+            <img src="../../assets/home/server02.png" />
+            <h3>美容牙科</h3>
+            <p>
+              恢復牙體的形態、功能與美觀之牙科治療，並提供病人口腔衛教，牙齒形態、咬合功能及美觀重建發展全方位美容牙科治療
+            </p>
+          </div>
+          <div class="servers_card">
+            <img src="../../assets/home/server03.png" />
+            <h3>人工植牙</h3>
+            <p>
+              以外科手術植入齒槽骨中，待人工牙根與齒槽骨緊密結合後，便具有類似原牙齒牙根的功能
+            </p>
+          </div>
+          <div class="servers_card">
+            <img src="../../assets/home/server04.png" />
+            <h3>齒顎矯正</h3>
+            <p>
+              治療不整齊的牙齒排列及不和諧的上下顎骨，以達
+              到符合「美觀、功能及健康」的顏面齒顎口腔系統
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -51,7 +56,7 @@
         </div>
       </div>
     </section>
-    <section id="home_team" class="bg">
+    <section id="home_team">
       <div class="team section">
         <h2>專業醫療團隊</h2>
         <h3>想更了解牙醫師們嗎？</h3>

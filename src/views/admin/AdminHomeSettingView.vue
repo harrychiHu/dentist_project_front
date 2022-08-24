@@ -22,7 +22,7 @@
         class="editCard"
         preset="card"
         :style="bodyStyle"
-        title="編輯表單"
+        title="編輯輪播圖表單"
         size="huge"
         :bordered="false"
       >
@@ -57,7 +57,7 @@
           >
             <a href="#admin/">
               <n-spin :show="bannerForm.show">
-                <button type="submit" class="saveBtn">保存</button>
+                <button type="submit" class="saveBtnBanner">保存</button>
               </n-spin>
             </a>
           </div>
@@ -111,6 +111,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             size: "small",
+            class: "bg-editor",
             onClick: () => openModel(row._id, row.idx),
           },
           { default: () => "編輯" }
@@ -127,6 +128,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             size: "small",
+            class: "bg-del",
             onClick: () => delModel(row._id),
           },
           { default: () => "刪除" }

@@ -1,31 +1,71 @@
 /* AdminHomeSettingView ----------------------------------------------------------------------------------------------------- */
 
 #HomeSetting{
-  .bannerFormContent{
-    .editorButton{
-      display: flex;
-      justify-content: flex-end;
-      a{
-        text-align: none;
-        .create_btn{
-          background-color: $main;
-          color: $text;
-          border: none;
-          font-size: 1rem;
-          border: 1px solid $main;
-          border-radius: 5%;
-          padding: 0.5rem 1rem;
-          &:hover{
-            background-color: rgba(125, 203, 207, 1);
-            cursor: pointer;
-          }
+  h1{
+    font-size: 2rem;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    color: $title;
+    &::after{
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: .1rem;
+      background-color: $title;
+      top: 90%;
+      left: 0;
+    }
+  }
+  h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .editorButton{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+    a{
+      text-align: none;
+      .create_btn{
+        background-color: $main;
+        color: $text;
+        border: none;
+        font-size: 1rem;
+        border: 1px solid $main;
+        border-radius: 5%;
+        padding: 0.5rem 1rem;
+        &:hover{
+          background-color: rgba(125, 203, 207, 1);
+          cursor: pointer;
         }
       }
     }
   }
+
+  .bg-del{
+    background-color: #C66A64;
+    color: $text;
+    &:hover{
+      background-color: #EE837C;
+    }
+  }
+  .bg-editor{
+    background-color: $main;
+    color: $text;
+    &:hover{
+      background-color: rgba(125, 203, 207, 1);
+    }
+  }
+  .n-pagination .n-pagination-item:not(.n-pagination-item--disabled).n-pagination-item--active{
+    color: $main;
+    border: 1px solid $main;
+  }
 }
 
-.saveBtn{
+.saveBtnBanner{
   background-color: $main;
   color: $text;
   border: none;

@@ -234,11 +234,8 @@
     </section>
     <!-- FOOTER -->
     <section class="bg1" id="footer2">
-      <div class="section footer2-wrap">
-        <div class="copyright">
-          <p>©喜樂芽牙醫診所 2022</p>
-        </div>
-        <div class="contact">
+      <div class="contact section">
+        <div class="tel">
           <p>
             <n-icon><phone-alt-icon /></n-icon>(02)8509-2410
           </p>
@@ -246,16 +243,21 @@
             <n-icon><map-marker-alt-icon /></n-icon
             >台北市松山區八德路四段245巷33號
           </p>
-          <p class="link">
-            <a
-              href="https://www.facebook.com/pages/category/Dentist---Dental-Office/%E5%96%9C%E6%A8%82%E8%8A%BD%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80-105752884273045/"
-              ><n-icon><facebook-icon /></n-icon
-            ></a>
-            <a href="https://line.me/ti/p/~85092410">
-              <n-icon><line-icon /></n-icon>
-            </a>
-          </p>
         </div>
+        <p class="link">
+          <a
+            href="https://www.facebook.com/pages/category/Dentist---Dental-Office/%E5%96%9C%E6%A8%82%E8%8A%BD%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80-105752884273045/"
+            ><n-icon><facebook-icon /></n-icon
+          ></a>
+          <a href="https://line.me/ti/p/~85092410">
+            <n-icon><line-icon /></n-icon>
+          </a>
+        </p>
+      </div>
+    </section>
+    <section id="footer3" class="bg1">
+      <div class="section copyright">
+        <p>©喜樂芽牙醫診所 2022</p>
       </div>
     </section>
   </div>

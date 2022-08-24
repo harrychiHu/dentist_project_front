@@ -21,7 +21,7 @@
       class="editCard"
       preset="card"
       :style="bodyStyle"
-      title="編輯表單"
+      title="編輯文章表單"
       size="huge"
       :bordered="false"
     >
@@ -99,7 +99,7 @@
         >
           <a href="#admin/admin-article-setting">
             <n-spin :show="articleForm.show">
-              <button type="submit" class="saveBtn">保存</button>
+              <button type="submit" class="saveBtnART">保存</button>
             </n-spin>
           </a>
         </div>
@@ -193,6 +193,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             size: "small",
+            class: "bg-editor",
             onClick: () => openModel(row._id, row.idx),
           },
           { default: () => "編輯" }
@@ -209,6 +210,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             size: "small",
+            class: "bg-del",
             onClick: () => delModel(row._id),
           },
           { default: () => "刪除" }

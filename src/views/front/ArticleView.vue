@@ -7,6 +7,43 @@
       </div>
     </section>
     <section id="articleContent">
+      <div class="article_card section">
+        <n-card
+          :bordered="false"
+          v-for="article in articles"
+          :key="article._id"
+        >
+          <template #cover>
+            <img :src="article.articlePic" />
+          </template>
+          <h2>{{ article.articleTitle }}</h2>
+          <h3>
+            <span
+              >{{ new Date(article.articleDate).toLocaleDateString() }} /
+              {{ article.articleCategory }}</span
+            >
+          </h3>
+          <p>
+            <n-ellipsis :tooltip="false" line-clamp="3">
+              {{ article.articleDescription }}
+            </n-ellipsis>
+          </p>
+          <div class="article_btn">
+            <router-link :to="'/article-look/' + article._id">
+              <n-button
+                type="primary"
+                color="#64C1C6"
+                size="large"
+                @click="team"
+              >
+                Read More
+              </n-button>
+            </router-link>
+          </div>
+        </n-card>
+      </div>
+    </section>
+    <!-- <section id="articleContent">
       <div class="article_row section">
         <n-card
           :bordered="false"
@@ -42,7 +79,7 @@
           <hr />
         </n-card>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 <script setup>

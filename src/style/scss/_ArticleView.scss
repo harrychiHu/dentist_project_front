@@ -36,7 +36,7 @@
 }
 
 #articleContent{
-  .article_row{
+  .article_card{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,25 +44,30 @@
     padding: 2rem 0;
     .n-card{
       width: 80%;
+      // background-color: lightblue;
       margin-bottom: 2rem;
-      display: flex;
-      justify-content: flex-start;
+      border-bottom: 1px solid $content;
+      padding-bottom: 1rem;
       .n-card__content{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
         padding: 0;
         h2{
           margin: 1rem 0;
-          font-size: 1.4rem;
+          font-size: 1.3rem;
+          color: $title;
+        }
+        h3{
+          color: $content;
+          margin-bottom: 1rem;
         }
         p{
-          max-width: 100%;
+          color: $content;
           font-size: 1rem;
         }
         .article_btn{
           margin: 1rem 0;
-          text-align: right;
+          a{
+            text-decoration: none;
+          }
         }
       }
     }
@@ -71,85 +76,36 @@
 
 @include md{
   #articleContent{
-    .article_row{
+    .article_card{
       .n-card{
-        width: 60%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        &:nth-child(even){
+          flex-direction: row-reverse;
+        }
+        .n-card-cover{
+          width: 50%;
+        }
+        .n-card__content{
+          width: 50%;
+          margin: 0 1rem;
+          h2{
+            margin-top: 0;
+
+          }
+        }
       }
     }
-
   }
 }
 
 @include xl{
   #articleContent{
-    .article_row{
+    .article_card{
       .n-card{
-        width: 50%;
+        width: 100%;
       }
     }
-
   }
 }
-
-// #articleContent{
-//   margin: 2rem 0;
-//   .content{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: column;
-//     margin-bottom: 2rem;
-//     .header{
-//       width: 80%;
-
-//     }
-//     .body{
-//       width: 80%;
-
-//       .n-ellipsis{
-//         max-width: 20rem;
-//       }
-//       .article_btn{
-//         margin-top: 1rem;
-//       }
-//     }
-//   }
-// }
-
-// @include md{
-//   #articleContent{
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     flex-direction: column;
-//     .content{
-//       .header{
-//         width: 90%;
-//       }
-//       .body{
-//         width: 90%;
-//         .n-ellipsis{
-//           max-width: 40rem;
-//         }
-//         .article_btn{
-//           margin-top: 1rem;
-//           text-align: right;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// @include xl{
-//   #articleContent{
-//     .content{
-//       .body{
-//         .n-ellipsis{
-//           max-width: 60rem;
-//           line-clamp: "2";
-//         }
-//       }
-//     }
-//   }
-
-// }

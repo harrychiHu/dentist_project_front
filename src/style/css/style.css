@@ -107,6 +107,7 @@ img {
   padding: 0.5rem 1rem;
 }
 .n-card__content .n-form .n-row .n-col .res_btn:hover {
+  background-color: rgb(125, 203, 207);
   cursor: pointer;
 }
 
@@ -132,11 +133,6 @@ img {
 .n-popover__content ul li:last-child {
   text-align: center;
   margin-top: 1rem;
-}
-
-.n-button:not(.n-button--disabled):hover {
-  background-color: rgb(125, 203, 207) !important;
-  color: #fff !important;
 }
 
 #footer1 {
@@ -194,43 +190,31 @@ img {
   display: block;
 }
 
-#footer2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  color: #fff;
-  font-size: 1rem;
-}
-#footer2 .copyright {
-  width: 100%;
-  text-align: center;
-}
 #footer2 .contact {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  color: #fff;
+  padding: 2rem 0;
 }
-#footer2 .contact .link {
-  width: 50%;
-  text-align: center;
+#footer2 .contact .tel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1rem;
+}
+#footer2 .contact .tel p {
+  margin-right: 1rem;
 }
 #footer2 .contact .link a {
   color: #fff;
@@ -248,51 +232,21 @@ img {
   margin-right: 0.2rem;
 }
 
+#footer3 .copyright {
+  text-align: center;
+  color: #fff;
+  padding: 1rem 0;
+  font-size: 1rem;
+}
+
 @media (min-width: 768px) {
-  #footer2 {
+  #footer2 .contact {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-  }
-  #footer2 .footer2-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    padding: 2rem 0;
-  }
-  #footer2 .footer2-wrap .copyright {
-    width: 50%;
-    text-align: left;
-  }
-  #footer2 .footer2-wrap .contact {
-    width: 50%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  #footer2 .footer2-wrap .contact .link {
-    width: 15%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    margin-left: 1rem;
-  }
-  #footer2 .footer2-wrap .contact .link a {
-    margin-right: 1rem;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
 }
 @media (min-width: 1200px) {
@@ -326,13 +280,6 @@ img {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  #footer2 .footer2-wrap .contact .link {
-    display: block;
-    text-align: end;
-  }
-  #footer2 .footer2-wrap .contact .link a {
-    margin: 0.5rem;
   }
 }
 /* ContactView ----------------------------------------------------------------------------------------------------- */
@@ -540,8 +487,8 @@ img {
 #team_content .team_row .n-card {
   width: 80%;
   margin-bottom: 2rem;
-  -webkit-filter: drop-shadow(3px 4px 3px rgba(149, 149, 149, 0.5));
-          filter: drop-shadow(3px 4px 3px rgba(149, 149, 149, 0.5));
+  -webkit-filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
+          filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
 }
 #team_content .team_row .n-card h2 {
   font-size: 2.2rem;
@@ -564,6 +511,7 @@ img {
 #team_content .team_row .n-card p {
   font-size: 1rem;
   white-space: pre;
+  line-height: 2em;
 }
 
 @media (min-width: 768px) {
@@ -584,6 +532,15 @@ img {
   }
 }
 @media (min-width: 1200px) {
+  #team_content .team_row {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #team_content .team_row .n-card {
+    width: 30%;
+    margin: 0 1rem;
+  }
   #team_content .team_row .n-card h2::after {
     right: 94%;
   }
@@ -605,10 +562,6 @@ img {
   text-decoration: none;
 }
 
-.n-button:not(.n-button--disabled):hover {
-  color: #64C1C6;
-}
-
 /* AdminLayout -------------------------------------------------------------------------------------------- */
 #adminContent {
   display: -webkit-box;
@@ -624,7 +577,7 @@ img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 60%;
+  width: 85%;
 }
 #adminContent .adminRight .avatarList {
   display: -webkit-box;
@@ -636,7 +589,7 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-right: 1rem;
+  padding-right: 3rem;
 }
 #adminContent .adminRight .avatarList .avatarText {
   margin-right: 1rem;
@@ -647,7 +600,7 @@ img {
 }
 #adminContent .adminLeft {
   background-color: #64C1C6;
-  width: 40%;
+  width: 15%;
 }
 #adminContent .adminLeft .logo {
   display: -webkit-box;
@@ -686,7 +639,7 @@ img {
 }
 #adminContent .n-menu .n-menu-item-content .n-menu-item-content-header a {
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   letter-spacing: 0.1em;
 }
@@ -698,18 +651,25 @@ img {
   cursor: pointer;
 }
 
-@media (min-width: 1200px) {
-  #adminContent .adminRight {
-    width: 80%;
-  }
-  #adminContent .adminRight .avatarList {
-    padding-right: 3rem;
-  }
-  #adminContent .adminLeft {
-    width: 20%;
-  }
-}
 /* AdminDoctorSettingView ----------------------------------------------------------------------------------------------------- */
+#DoctorSetting h1 {
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#DoctorSetting h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
+}
 #DoctorSetting .editorButton {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -717,6 +677,7 @@ img {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 #DoctorSetting .editorButton a {
   text-align: none;
@@ -734,8 +695,26 @@ img {
   background-color: rgb(125, 203, 207);
   cursor: pointer;
 }
+#DoctorSetting .bg-del {
+  background-color: #C66A64;
+  color: #fff;
+}
+#DoctorSetting .bg-del:hover {
+  background-color: #EE837C;
+}
+#DoctorSetting .bg-editor {
+  background-color: #64C1C6;
+  color: #fff;
+}
+#DoctorSetting .bg-editor:hover {
+  background-color: rgb(125, 203, 207);
+}
+#DoctorSetting .n-pagination .n-pagination-item:not(.n-pagination-item--disabled).n-pagination-item--active {
+  color: #64C1C6;
+  border: 1px solid #64C1C6;
+}
 
-.saveBtn {
+.saveBtnDOC {
   background-color: #64C1C6;
   color: #fff;
   border: none;
@@ -744,7 +723,7 @@ img {
   border-radius: 5%;
   padding: 0.5rem 1rem;
 }
-.saveBtn:hover {
+.saveBtnDOC:hover {
   background-color: rgb(125, 203, 207);
   cursor: pointer;
 }
@@ -787,6 +766,24 @@ img {
 }
 
 /* AdminArticleSettingView ----------------------------------------------------------------------------------------------------- */
+#ArticleSetting h1 {
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#ArticleSetting h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
+}
 #ArticleSetting .editorButton {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -794,6 +791,7 @@ img {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 #ArticleSetting .editorButton a {
   text-align: none;
@@ -811,8 +809,26 @@ img {
   background-color: rgb(125, 203, 207);
   cursor: pointer;
 }
+#ArticleSetting .bg-del {
+  background-color: #C66A64;
+  color: #fff;
+}
+#ArticleSetting .bg-del:hover {
+  background-color: #EE837C;
+}
+#ArticleSetting .bg-editor {
+  background-color: #64C1C6;
+  color: #fff;
+}
+#ArticleSetting .bg-editor:hover {
+  background-color: rgb(125, 203, 207);
+}
+#ArticleSetting .n-pagination .n-pagination-item:not(.n-pagination-item--disabled).n-pagination-item--active {
+  color: #64C1C6;
+  border: 1px solid #64C1C6;
+}
 
-.saveBtn {
+.saveBtnART {
   background-color: #64C1C6;
   color: #fff;
   border: none;
@@ -821,7 +837,7 @@ img {
   border-radius: 5%;
   padding: 0.5rem 1rem;
 }
-.saveBtn:hover {
+.saveBtnART:hover {
   background-color: rgb(125, 203, 207);
   cursor: pointer;
 }
@@ -864,18 +880,41 @@ img {
 }
 
 /* AdminHomeSettingView ----------------------------------------------------------------------------------------------------- */
-#HomeSetting .bannerFormContent .editorButton {
+#HomeSetting h1 {
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#HomeSetting h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
+}
+#HomeSetting h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#HomeSetting .editorButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 1rem;
 }
-#HomeSetting .bannerFormContent .editorButton a {
+#HomeSetting .editorButton a {
   text-align: none;
 }
-#HomeSetting .bannerFormContent .editorButton a .create_btn {
+#HomeSetting .editorButton a .create_btn {
   background-color: #64C1C6;
   color: #fff;
   border: none;
@@ -884,12 +923,30 @@ img {
   border-radius: 5%;
   padding: 0.5rem 1rem;
 }
-#HomeSetting .bannerFormContent .editorButton a .create_btn:hover {
+#HomeSetting .editorButton a .create_btn:hover {
   background-color: rgb(125, 203, 207);
   cursor: pointer;
 }
+#HomeSetting .bg-del {
+  background-color: #C66A64;
+  color: #fff;
+}
+#HomeSetting .bg-del:hover {
+  background-color: #EE837C;
+}
+#HomeSetting .bg-editor {
+  background-color: #64C1C6;
+  color: #fff;
+}
+#HomeSetting .bg-editor:hover {
+  background-color: rgb(125, 203, 207);
+}
+#HomeSetting .n-pagination .n-pagination-item:not(.n-pagination-item--disabled).n-pagination-item--active {
+  color: #64C1C6;
+  border: 1px solid #64C1C6;
+}
 
-.saveBtn {
+.saveBtnBanner {
   background-color: #64C1C6;
   color: #fff;
   border: none;
@@ -898,7 +955,7 @@ img {
   border-radius: 5%;
   padding: 0.5rem 1rem;
 }
-.saveBtn:hover {
+.saveBtnBanner:hover {
   background-color: rgb(125, 203, 207);
   cursor: pointer;
 }
@@ -1120,6 +1177,9 @@ img {
      object-fit: cover;
 }
 
+#home_content {
+  padding: 4rem 0;
+}
 #home_content .servers {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1134,9 +1194,40 @@ img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-bottom: 2rem;
 }
-#home_content .servers .servers_card {
+#home_content .servers .serversTitle h2 {
+  font-size: 2.2rem;
+  position: relative;
+  color: #595959;
+  margin-bottom: 1rem;
+}
+#home_content .servers .serversTitle h2::after {
+  content: "";
+  width: 3rem;
+  height: 0.1rem;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: #595959;
+}
+#home_content .servers .servers_row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#home_content .servers .servers_row .servers_card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1151,20 +1242,20 @@ img {
       -ms-flex-align: center;
           align-items: center;
   width: 80%;
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
-#home_content .servers .servers_card img {
+#home_content .servers .servers_row .servers_card img {
   width: 50%;
-  -webkit-filter: drop-shadow(5px 6px 5px rgba(149, 149, 149, 0.5));
-          filter: drop-shadow(5px 6px 5px rgba(149, 149, 149, 0.5));
+  -webkit-filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
+          filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
 }
-#home_content .servers .servers_card h3 {
+#home_content .servers .servers_row .servers_card h3 {
   font-size: 1.5rem;
   margin-top: 1rem;
   letter-spacing: 0.3em;
   color: #595959;
 }
-#home_content .servers .servers_card p {
+#home_content .servers .servers_row .servers_card p {
   font-size: 1rem;
   margin-top: 0.5rem;
   letter-spacing: 0.1em;
@@ -1188,6 +1279,7 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 #home_timetable .timetable h2 {
   font-size: 2.2rem;
@@ -1219,6 +1311,11 @@ img {
           align-items: center;
 }
 
+#home_team {
+  background: url("../../assets/home/team01.png") no-repeat center/cover;
+  background-attachment: fixed;
+  padding: 3rem 0;
+}
 #home_team .team {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1239,8 +1336,8 @@ img {
 #home_team .team h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-size: 2.2rem;
-  color: #595959;
+  font-size: 2.5rem;
+  color: #fff;
   position: relative;
 }
 #home_team .team h2::after {
@@ -1252,14 +1349,22 @@ img {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  background-color: #595959;
+  background-color: #fff;
 }
 #home_team .team h3 {
-  font-size: 1.3rem;
-  color: #959595;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
   width: 80%;
   text-align: center;
+}
+#home_team .team .n-button {
+  margin-top: 2rem;
+  padding-top: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+#home_team .team .n-button .n-button__content {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 #home_article .article {
@@ -1336,8 +1441,8 @@ img {
 }
 #home_article .article .article_card .n-card {
   margin-bottom: 2rem;
-  -webkit-filter: drop-shadow(3px 4px 3px rgba(149, 149, 149, 0.5));
-          filter: drop-shadow(3px 4px 3px rgba(149, 149, 149, 0.5));
+  -webkit-filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
+          filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
 }
 #home_article .article .article_card .n-card h2 {
   margin-top: 1rem;
@@ -1365,7 +1470,7 @@ img {
   #home_header .carousel-img {
     height: 25rem;
   }
-  #home_content .servers {
+  #home_content .servers .servers_row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -1373,7 +1478,7 @@ img {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
   }
-  #home_content .servers .servers_card {
+  #home_content .servers .servers_row .servers_card {
     width: 40%;
   }
   #home_article .article .article_card {
@@ -1403,15 +1508,7 @@ img {
   #home_header .carousel-img {
     height: 45rem;
   }
-  #home_content .servers {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-  #home_content .servers .servers_card {
+  #home_content .servers .servers_row .servers_card {
     width: 25%;
   }
 }
@@ -1688,7 +1785,7 @@ img {
   margin-bottom: 1rem;
 }
 
-#articleContent .article_row {
+#articleContent .article_card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1704,49 +1801,223 @@ img {
           flex-direction: column;
   padding: 2rem 0;
 }
-#articleContent .article_row .n-card {
+#articleContent .article_card .n-card {
   width: 80%;
   margin-bottom: 2rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  border-bottom: 1px solid #959595;
+  padding-bottom: 1rem;
 }
-#articleContent .article_row .n-card .n-card__content {
+#articleContent .article_card .n-card .n-card__content {
+  padding: 0;
+}
+#articleContent .article_card .n-card .n-card__content h2 {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  color: #595959;
+}
+#articleContent .article_card .n-card .n-card__content h3 {
+  color: #959595;
+  margin-bottom: 1rem;
+}
+#articleContent .article_card .n-card .n-card__content p {
+  color: #959595;
+  font-size: 1rem;
+}
+#articleContent .article_card .n-card .n-card__content .article_btn {
+  margin: 1rem 0;
+}
+#articleContent .article_card .n-card .n-card__content .article_btn a {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  #articleContent .article_card .n-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #articleContent .article_card .n-card:nth-child(even) {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  #articleContent .article_card .n-card .n-card-cover {
+    width: 50%;
+  }
+  #articleContent .article_card .n-card .n-card__content {
+    width: 50%;
+    margin: 0 1rem;
+  }
+  #articleContent .article_card .n-card .n-card__content h2 {
+    margin-top: 0;
+  }
+}
+@media (min-width: 1200px) {
+  #articleContent .article_card .n-card {
+    width: 100%;
+  }
+}
+/* AdminLayout -------------------------------------------------------------------------------------------- */
+#articlelook {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding: 0;
+  margin: 2rem 0;
 }
-#articleContent .article_row .n-card .n-card__content h2 {
+#articlelook .articleWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+}
+#articlelook .articleWrap .articlePic {
   margin: 1rem 0;
-  font-size: 1.4rem;
 }
-#articleContent .article_row .n-card .n-card__content p {
-  max-width: 100%;
+#articlelook .articleWrap .articleTitle h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #595959;
+}
+#articlelook .articleWrap .articleTitle p {
   font-size: 1rem;
+  color: #959595;
 }
-#articleContent .article_row .n-card .n-card__content .article_btn {
-  margin: 1rem 0;
-  text-align: right;
+#articlelook .articleWrap .articleText h3 {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  color: #595959;
+  line-height: 2em;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+#articlelook .articleWrap .articleText p {
+  font-size: 1rem;
+  line-height: 2em;
+  color: #959595;
 }
 
 @media (min-width: 768px) {
-  #articleContent .article_row .n-card {
+  #articlelook .articleWrap {
     width: 60%;
   }
-}
-@media (min-width: 1200px) {
-  #articleContent .article_row .n-card {
-    width: 50%;
+  #articlelook .articleWrap .articleTitle p {
+    text-align: center;
   }
+}
+/* AdminMemberSettingView ----------------------------------------------------------------------------------------------------- */
+#MemberSetting h1 {
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#MemberSetting h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
+}
+#MemberSetting .bg-del {
+  background-color: #C66A64;
+  color: #fff;
+}
+#MemberSetting .bg-del:hover {
+  background-color: #EE837C;
+}
+#MemberSetting .bg-check {
+  background-color: #2473cb;
+  color: #fff;
+}
+#MemberSetting .bg-check:hover {
+  background-color: #2C8DF9;
+}
+#MemberSetting .n-pagination .n-pagination-item:not(.n-pagination-item--disabled).n-pagination-item--active {
+  color: #64C1C6;
+  border: 1px solid #64C1C6;
+}
+
+/* _AdminReserveSettingView ----------------------------------------------------------------------------------------------------- */
+#AdminReserveSetting h1 {
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#AdminReserveSetting h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
+}
+#AdminReserveSetting .bg-del {
+  background-color: #C66A64;
+  color: #fff;
+}
+#AdminReserveSetting .bg-del:hover {
+  background-color: #EE837C;
+}
+#AdminReserveSetting .bg-editor {
+  background-color: #64C1C6;
+  color: #fff;
+}
+#AdminReserveSetting .bg-editor:hover {
+  background-color: rgb(125, 203, 207);
+}
+#AdminReserveSetting .n-pagination .n-pagination-item:not(.n-pagination-item--disabled).n-pagination-item--active {
+  color: #64C1C6;
+  border: 1px solid #64C1C6;
+}
+
+.saveBtnRes {
+  background-color: #64C1C6;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  border: 1px solid #64C1C6;
+  border-radius: 5%;
+  padding: 0.5rem 1rem;
+}
+.saveBtnRes:hover {
+  background-color: rgb(125, 203, 207);
+  cursor: pointer;
 }

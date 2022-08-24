@@ -1,6 +1,6 @@
-/* AdminDoctorSettingView ----------------------------------------------------------------------------------------------------- */
+/* _AdminReserveSettingView ----------------------------------------------------------------------------------------------------- */
 
-#DoctorSetting{
+#AdminReserveSetting{
   h1{
     font-size: 2rem;
     text-align: left;
@@ -17,27 +17,6 @@
       background-color: $title;
       top: 90%;
       left: 0;
-    }
-  }
-  .editorButton{
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 1rem;
-    a{
-      text-align: none;
-      .create_btn{
-        background-color: $main;
-        color: $text;
-        border: none;
-        font-size: 1rem;
-        border: 1px solid $main;
-        border-radius: 5%;
-        padding: 0.5rem 1rem;
-        &:hover{
-          background-color: rgba(125, 203, 207, 1);
-          cursor: pointer;
-        }
-      }
     }
   }
   .bg-del{
@@ -58,9 +37,8 @@
     color: $main;
     border: 1px solid $main;
   }
-  
 }
-.saveBtnDOC{
+.saveBtnRes{
   background-color: $main;
   color: $text;
   border: none;
@@ -73,5 +51,3 @@
     cursor: pointer;
   }
 }
-
-

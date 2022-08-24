@@ -1,12 +1,15 @@
 <template>
   <div class="container">
     <section id="articlelook">
-      <div>
-        <div>
+      <div class="articleWrap section">
+        <div class="articleTitle">
+          <h2>{{ articles.articleTitle }}</h2>
+          <p>{{ new Date(articles.articleDate).toLocaleDateString() }}</p>
+        </div>
+        <div class="articlePic">
           <img :src="articles.articlePic" />
         </div>
-        <div>
-          <h2>{{ articles.articleTitle }}</h2>
+        <div class="articleText">
           <h3>{{ articles.articleDescription }}</h3>
           <p v-html="articles.articleEditor"></p>
         </div>
