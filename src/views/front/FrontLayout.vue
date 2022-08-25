@@ -214,9 +214,9 @@
       </div>
     </section>
     <!-- 路由 -->
-    <div>
-      <router-view></router-view>
-    </div>
+
+    <router-view></router-view>
+
     <!-- 立即預約 -->
     <section class="bg" id="footer1">
       <div class="now section">

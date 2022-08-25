@@ -561,6 +561,22 @@ img {
 #notFound a {
   text-decoration: none;
 }
+#notFound a button {
+  color: #fff;
+  width: 8rem;
+  height: 3rem;
+  border: none;
+  background-color: #64C1C6;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+#notFound a button:hover {
+  background: rgb(125, 203, 207);
+  cursor: pointer;
+}
 
 /* AdminLayout -------------------------------------------------------------------------------------------- */
 #adminContent {
@@ -1410,7 +1426,9 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 2rem;
-  height: 100%;
+}
+#home_article .article .article_more_btn {
+  margin-top: 2rem;
 }
 #home_article .article .article_title {
   display: -webkit-box;
@@ -1453,24 +1471,12 @@ img {
   text-align: center;
 }
 #home_article .article .article_card {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 1rem;
   width: 80%;
-  height: 100%;
 }
 #home_article .article .article_card .n-card {
-  margin-bottom: 2rem;
   height: 100%;
   -webkit-filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
           filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
@@ -1516,26 +1522,11 @@ img {
     width: 40%;
   }
   #home_article .article .article_card {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    width: 100%;
-  }
-  #home_article .article .article_card .n-card {
-    width: 35%;
-    margin-right: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 2rem;
+    grid-column-gap: 2rem;
+    width: 80%;
   }
 }
 @media (min-width: 1200px) {

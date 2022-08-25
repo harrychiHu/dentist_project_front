@@ -7,9 +7,27 @@
   margin-top: 5rem;
   a{
     text-decoration: none;
+    button{
+      color: $text;
+      width: 8rem;
+      height: 3rem;
+      border: none;
+      background-color: $main;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: all 1s;
+
+      &:hover{
+        background: rgba(125, 203, 207, 1);
+        cursor: pointer;
+      }
+    }
   }
 
 }
+
+
 
 
 // .n-button{
@@ -19,4 +37,3 @@
 //     }
 //   }
 // }
-
