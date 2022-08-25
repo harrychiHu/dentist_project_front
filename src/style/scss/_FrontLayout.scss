@@ -111,7 +111,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 3rem 0;
   .now{
     display: flex;
     justify-content: center;
@@ -145,36 +145,24 @@
     }
   }
 }
-
 #footer2{
   .contact{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: $text;
-    padding: 2rem 0;
+    padding: 1rem;
+    width: 100%;
     .tel{
-      display: flex;
+      line-height: 2em;
+      color: $content;
       font-size: 1rem;
-      p{
-        margin-right: 1rem;
-      }
-    }
-    .link{
-      a{
-        color: $text;
-        width: 1rem;
-        font-size: 1.5rem;
-        transition: all 1s;
-        margin-right: 0.5rem;
-        &:hover{
-          color: $main;
-        }
+      i{
+        margin-right: 0.2rem;
+        color: $title;
       }
     }
   }
 }
+
   .n-icon{
     margin-right: 0.2rem;
   }
@@ -194,6 +182,15 @@
     .contact{
       flex-direction: row;
       justify-content: space-around;
+      .tel{
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+      }
+      .f-logo{
+        width: 50%;
+
+      }
     }
   }
 }
@@ -223,6 +220,17 @@
         align-items: center;
         width: 10%;
         justify-content: center;
+      }
+    }
+  }
+  #footer2{
+    .contact{
+      width: 80%;
+      .tel{
+        justify-content: center;
+        p{
+          margin-right: 1rem;
+        }
       }
     }
   }

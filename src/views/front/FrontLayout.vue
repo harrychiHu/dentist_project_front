@@ -233,8 +233,11 @@
       </div>
     </section>
     <!-- FOOTER -->
-    <section class="bg1" id="footer2">
+    <section id="footer2">
       <div class="contact section">
+        <div class="f-logo">
+          <img src="../../assets/LOGO_S.png" alt="" />
+        </div>
         <div class="tel">
           <p>
             <n-icon><phone-alt-icon /></n-icon>(02)8509-2410
@@ -244,7 +247,7 @@
             >台北市松山區八德路四段245巷33號
           </p>
         </div>
-        <p class="link">
+        <!-- <p class="link">
           <a
             href="https://www.facebook.com/pages/category/Dentist---Dental-Office/%E5%96%9C%E6%A8%82%E8%8A%BD%E7%89%99%E9%86%AB%E8%A8%BA%E6%89%80-105752884273045/"
             ><n-icon><facebook-icon /></n-icon
@@ -252,7 +255,7 @@
           <a href="https://line.me/ti/p/~85092410">
             <n-icon><line-icon /></n-icon>
           </a>
-        </p>
+        </p> -->
       </div>
     </section>
     <section id="footer3" class="bg1">
@@ -271,8 +274,8 @@ import { storeToRefs } from "pinia";
 /* ICON ----------------------------------------------------------------------------- */
 import { PhoneAlt as PhoneAltIcon } from "@vicons/fa";
 import { MapMarkerAlt as MapMarkerAltIcon } from "@vicons/fa";
-import { Facebook as FacebookIcon } from "@vicons/fa";
-import { Line as LineIcon } from "@vicons/fa";
+// import { Facebook as FacebookIcon } from "@vicons/fa";
+// import { Line as LineIcon } from "@vicons/fa";
 import { LayoutList as LayoutListIcon } from "@vicons/tabler";
 import { api } from "@/plugins/axios";
 import { useRouter } from "vue-router";

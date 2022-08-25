@@ -60,9 +60,14 @@
         }
       }
       p{
-        margin-top: 1rem;
         font-size: 1rem;
         color: $content;
+      }
+      a{
+        font-size: 1rem;
+        color: $content;
+        text-decoration: none;
+        display: block;
       }
     }
   }
