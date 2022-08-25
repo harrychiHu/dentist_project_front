@@ -731,7 +731,21 @@ img {
 /* AdminDoctorEditorSetting ------------------------------------------------------------------------------ */
 #doctorEditor h1 {
   font-size: 2rem;
-  text-align: center;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#doctorEditor h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
 }
 #doctorEditor .doctorForm {
   margin: auto;
@@ -845,7 +859,21 @@ img {
 /* AdminArticleEditorSettingView ------------------------------------------------------------------------------ */
 #ArticleEditor h1 {
   font-size: 2rem;
-  text-align: center;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#ArticleEditor h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
 }
 #ArticleEditor .articleForm {
   margin: auto;
@@ -1020,7 +1048,7 @@ img {
 }
 #memberContent .memberLeft .n-menu .n-menu-item-content .n-menu-item-content-header a {
   color: #fff;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: 0.1em;
 }
@@ -1382,6 +1410,7 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   margin-bottom: 2rem;
+  height: 100%;
 }
 #home_article .article .article_title {
   display: -webkit-box;
@@ -1438,9 +1467,11 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 80%;
+  height: 100%;
 }
 #home_article .article .article_card .n-card {
   margin-bottom: 2rem;
+  height: 100%;
   -webkit-filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
           filter: drop-shadow(1px 1px 7px rgba(149, 149, 149, 0.3));
 }
@@ -1464,6 +1495,9 @@ img {
       -ms-flex-pack: end;
           justify-content: flex-end;
   margin-top: 1rem;
+}
+#home_article .article .article_card .n-card .article_btn a {
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -1696,7 +1730,21 @@ img {
 /* _MemberReseverView ------------------------------------------------------------------------------ */
 #memberResever h1 {
   font-size: 2rem;
-  text-align: center;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#memberResever h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
 }
 #memberResever .reseverForm {
   margin: auto;
@@ -1805,7 +1853,8 @@ img {
   width: 80%;
   margin-bottom: 2rem;
   border-bottom: 1px solid #959595;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
 }
 #articleContent .article_card .n-card .n-card__content {
   padding: 0;
@@ -2020,4 +2069,31 @@ img {
 .saveBtnRes:hover {
   background-color: rgb(125, 203, 207);
   cursor: pointer;
+}
+
+/* MemberCheckReseverView ------------------------------------------------------------------------------ */
+#ReseversSetting h1 {
+  font-size: 2rem;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  color: #595959;
+}
+#ReseversSetting h1::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.1rem;
+  background-color: #595959;
+  top: 90%;
+  left: 0;
+}
+#ReseversSetting .bg-check {
+  background-color: #2473cb;
+  color: #fff;
+}
+#ReseversSetting .bg-check:hover {
+  background-color: #2C8DF9;
 }

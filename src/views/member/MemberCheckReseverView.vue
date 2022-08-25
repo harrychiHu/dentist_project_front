@@ -175,6 +175,7 @@ const createColumns = () => {
           {
             size: "small",
             onClick: () => openModel(row._id, row.idx),
+            class: "bg-check",
           },
           { default: renderIcon(SearchIcon) }
         );

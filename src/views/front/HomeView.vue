@@ -84,19 +84,21 @@
               {{ article.articleDescription }}
             </n-ellipsis>
             <div class="article_btn">
-              <n-button
-                type="primary"
-                color="#64C1C6"
-                size="large"
-                @click="team"
-              >
-                Read More
-              </n-button>
+              <router-link :to="'/article-look/' + article._id">
+                <n-button type="primary" color="#64C1C6" size="large">
+                  Read More
+                </n-button>
+              </router-link>
             </div>
           </n-card>
         </div>
         <div class="article_more_btn">
-          <n-button type="primary" color="#64C1C6" size="large" @click="team">
+          <n-button
+            type="primary"
+            color="#64C1C6"
+            size="large"
+            @click="article"
+          >
             更多文章
           </n-button>
         </div>
@@ -115,6 +117,10 @@ const router = useRouter();
 
 const banners = reactive([]);
 const articles = reactive([]);
+
+const article = () => {
+  router.push("/article");
+};
 
 const team = () => {
   router.push("/team");

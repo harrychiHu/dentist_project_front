@@ -39,60 +39,74 @@
         }"
         @submit.prevent="submitForm"
       >
-        <n-form-item label="文章標題" path="articleTitle">
-          <n-input
-            v-model:value="articleForm.articleTitle"
-            placeholder="請輸入文章標題"
-          />
-        </n-form-item>
-        <n-form-item label="文章日期" path="articleDate">
-          <n-date-picker
-            v-model:value="articleForm.articleDate"
-            type="datetime"
-            clearable
-          />
-        </n-form-item>
-        <n-form-item label="文章圖片" path="articlePic">
-          <n-upload v-model:file-list="articleForm.articlePic" accept="image/*">
-            <n-button>上傳文章圖片</n-button>
-          </n-upload>
-        </n-form-item>
-        <n-form-item label="文章描述" path="articleDescription">
-          <n-input
-            v-model:value="articleForm.articleDescription"
-            placeholder="Textarea"
-            type="textarea"
-            round
-            clearable
-            :autosize="{
-              minRows: 3,
-            }"
-          />
-          <template #clear-icon>
-            <n-icon :component="TrashBinOutline" />
-          </template>
-        </n-form-item>
-        <n-form-item label="文章內容" path="articleEditor">
-          <div>
-            <QuillEditor
-              toolbar="full"
-              v-model:content="articleForm.articleEditor"
-              contentType="html"
+        <n-grid :cols="24" :x-gap="24">
+          <n-form-item-gi :span="24" label="選擇分類" path="articleCategory">
+            <n-select
+              v-model:value="articleForm.articleCategory"
+              :options="articleCategories"
+              placeholder="選擇分類"
             />
-          </div>
-        </n-form-item>
-        <n-form-item label="選擇分類" path="articleCategory">
-          <n-select
-            v-model:value="articleForm.articleCategory"
-            :options="articleCategories"
-            placeholder="選擇分類"
-          />
-        </n-form-item>
-        <n-form-item label="是否上架" path="articleShow">
-          <n-checkbox v-model:checked="articleForm.articleShow">
-            上架
-          </n-checkbox>
-        </n-form-item>
+          </n-form-item-gi>
+          <n-form-item-gi :span="24" label="文章標題" path="articleTitle">
+            <n-input
+              v-model:value="articleForm.articleTitle"
+              placeholder="請輸入文章標題"
+            />
+          </n-form-item-gi>
+          <n-form-item-gi :span="12" label="文章日期" path="articleDate">
+            <n-date-picker
+              v-model:value="articleForm.articleDate"
+              type="datetime"
+              clearable
+            />
+          </n-form-item-gi>
+          <n-form-item-gi
+            :span="12"
+            :rail-style="railStyle"
+            label="是否上架"
+            path="articleShow"
+          >
+            <n-switch
+              :rail-style="railStyle"
+              v-model:value="articleForm.articleShow"
+            >
+              <template #checked></template>
+              <template #unchecked></template>
+            </n-switch>
+          </n-form-item-gi>
+          <n-form-item-gi :span="24" label="文章圖片" path="articlePic">
+            <n-upload
+              v-model:file-list="articleForm.articlePic"
+              accept="image/*"
+            >
+              <n-button>上傳文章圖片</n-button>
+            </n-upload>
+          </n-form-item-gi>
+          <n-form-item-gi :span="24" label="文章描述" path="articleDescription">
+            <n-input
+              v-model:value="articleForm.articleDescription"
+              placeholder="Textarea"
+              type="textarea"
+              round
+              clearable
+              :autosize="{
+                minRows: 3,
+              }"
+            />
+            <template #clear-icon>
+              <n-icon :component="TrashBinOutline" />
+            </template>
+          </n-form-item-gi>
+          <n-form-item-gi :span="24" label="文章內容" path="articleEditor">
+            <div>
+              <QuillEditor
+                toolbar="full"
+                v-model:content="articleForm.articleEditor"
+                contentType="html"
+              />
+            </div>
+          </n-form-item-gi>
+        </n-grid>
         <div
           style="display: flex; justify-content: flex-end"
           class="submitButton"
@@ -119,7 +133,7 @@ import "@vueup/vue-quill/dist/vue-quill.snow.css";
 
 const size = ref("medium");
 const formRef = ref(null);
-const bodyStyle = { width: "600px" };
+const bodyStyle = { width: "800px" };
 
 const articleForm = reactive({
   _id: "",
@@ -221,6 +235,22 @@ const createColumns = () => {
 };
 
 const articles = reactive([]);
+
+const railStyle = ({ focused, checked }) => {
+  const style = {};
+  if (checked) {
+    style.background = "#2473cb";
+    if (focused) {
+      style.boxShadow = "0 0 0 2px #2169BA";
+    }
+  } else {
+    style.background = "#959595";
+    if (focused) {
+      style.boxShadow = "0 0 0 2px #595959";
+    }
+  }
+  return style;
+};
 
 const rules = {
   articleTitle: {
@@ -346,7 +376,7 @@ const delModel = (id) => {
     .then(async (result) => {
       if (result.isConfirmed) {
         await apiAuth.delete("/articles/" + id);
-        Swal.fire("刪除成功", "success");
+        Swal.fire("刪除成功", "成功");
       }
       init();
     })

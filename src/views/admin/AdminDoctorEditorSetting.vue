@@ -41,8 +41,14 @@
           <n-icon :component="TrashBinOutline" />
         </template>
       </n-form-item>
-      <n-form-item label="是否上線" path="doctorShow">
-        <n-checkbox v-model:checked="doctorForm.doctorShow"> 上線 </n-checkbox>
+      <n-form-item :rail-style="railStyle" label="是否上架" path="doctorShow">
+        <n-switch
+          :rail-style="railStyle"
+          v-model:checked="doctorForm.doctorShow"
+        >
+          <template #checked></template>
+          <template #unchecked></template>
+        </n-switch>
       </n-form-item>
       <div
         style="display: flex; justify-content: flex-end"
@@ -77,6 +83,22 @@ const doctorForm = reactive({
   idx: -1,
   show: false,
 });
+
+const railStyle = ({ focused, checked }) => {
+  const style = {};
+  if (checked) {
+    style.background = "#2473cb";
+    if (focused) {
+      style.boxShadow = "0 0 0 2px #2169BA";
+    }
+  } else {
+    style.background = "#959595";
+    if (focused) {
+      style.boxShadow = "0 0 0 2px #595959";
+    }
+  }
+  return style;
+};
 
 const rules = {
   doctorName: {

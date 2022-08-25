@@ -18,7 +18,7 @@ const router = createRouter({
           meta: {
             title: '喜樂芽牙科',
             login:false,
-            admin:false
+            admin:false,
           }
         },
         {
@@ -28,7 +28,7 @@ const router = createRouter({
           meta: {
             title: '喜樂芽牙科 | 診所資訊',
             login:false,
-            admin:false
+            admin:false,
           }
         },
         {
@@ -38,7 +38,7 @@ const router = createRouter({
           meta: {
             title: '喜樂芽牙科 | 醫師介紹',
             login:false,
-            admin:false
+            admin:false,
           }
         },
         {
@@ -48,7 +48,7 @@ const router = createRouter({
           meta: {
             title: '喜樂芽牙科 | 保健文章',
             login:false,
-            admin:false
+            admin:false,
           }
         },
         {
@@ -58,7 +58,7 @@ const router = createRouter({
           meta: {
             title: '喜樂芽牙科 | 文章查看',
             login:false,
-            admin:false
+            admin:false,
           }
         },
         {
@@ -68,7 +68,7 @@ const router = createRouter({
           meta: {
             title: '喜樂芽牙科 | 聯絡我們',
             login:false,
-            admin:false
+            admin:false,
           }
         },
       ]
