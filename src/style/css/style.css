@@ -111,6 +111,11 @@ img {
   cursor: pointer;
 }
 
+.n-card__footer a {
+  font-size: 1rem;
+  color: #64C1C6;
+}
+
 .n-popover__content ul {
   list-style: none;
 }
