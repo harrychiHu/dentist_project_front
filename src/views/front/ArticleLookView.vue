@@ -19,7 +19,7 @@
 </template>
 <script setup>
 import { reactive } from "vue";
-import { apiAuth } from "@/plugins/axios";
+import { api } from "@/plugins/axios";
 import Swal from "sweetalert2";
 import { useRoute } from "vue-router";
 
@@ -36,7 +36,7 @@ const articles = reactive({
 
 const init = async () => {
   try {
-    const { data } = await apiAuth.get("/articles/catch/" + router.params.id);
+    const { data } = await api.get("/articles/catch/" + router.params.id);
     articles._id = data.result._id;
     articles.date = data.result.date;
     articles.image = data.result.image;
