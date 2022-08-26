@@ -29,7 +29,7 @@
             </n-ellipsis>
           </p>
           <div class="article_btn">
-            <router-link :to="'/article-look/' + article._id">
+            <router-link :to="'#/article-look/' + article._id">
               <n-button type="primary" color="#64C1C6" size="large">
                 Read More
               </n-button>
