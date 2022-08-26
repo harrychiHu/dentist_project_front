@@ -36,7 +36,7 @@ const articles = reactive({
 
 const init = async () => {
   try {
-    const { data } = await api.get("./articles/catch/" + router.params.id);
+    const { data } = await api.get("/articles/catch/" + router.params.id);
     articles._id = data.result._id;
     articles.date = data.result.date;
     articles.image = data.result.image;
@@ -44,7 +44,6 @@ const init = async () => {
     articles.editor = data.result.editor;
     articles.category = data.result.category;
     articles.title = data.result.title;
-    console.log(articles);
   } catch (error) {
     Swal.fire({
       icon: "error",
