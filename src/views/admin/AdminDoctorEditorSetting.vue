@@ -15,20 +15,21 @@
       }"
       @submit.prevent="submitForm"
     >
-      <n-form-item label="醫師姓名" path="doctorName">
-        <n-input
-          v-model:value="doctorForm.doctorName"
-          placeholder="請輸入醫師姓名"
-        />
+      <n-form-item label="醫師姓名" path="name">
+        <n-input v-model:value="doctorForm.name" placeholder="請輸入醫師姓名" />
       </n-form-item>
-      <n-form-item label="醫師照片" path="doctorPic">
-        <n-upload v-model:file-list="doctorForm.doctorPic" accept="image/*">
+      <n-form-item label="醫師照片" path="image">
+        <n-upload
+          v-model:file-list="doctorForm.image"
+          accept="image/*"
+          :max="1"
+        >
           <n-button>上傳醫師照片</n-button>
         </n-upload>
       </n-form-item>
-      <n-form-item label="醫師介紹" path="doctorDescription">
+      <n-form-item label="醫師介紹" path="description">
         <n-input
-          v-model:value="doctorForm.doctorDescription"
+          v-model:value="doctorForm.description"
           placeholder="Textarea"
           type="textarea"
           round
@@ -41,11 +42,8 @@
           <n-icon :component="TrashBinOutline" />
         </template>
       </n-form-item>
-      <n-form-item :rail-style="railStyle" label="是否上架" path="doctorShow">
-        <n-switch
-          :rail-style="railStyle"
-          v-model:checked="doctorForm.doctorShow"
-        >
+      <n-form-item :rail-style="railStyle" label="是否上架" path="online">
+        <n-switch :rail-style="railStyle" v-model:checked="doctorForm.online">
           <template #checked></template>
           <template #unchecked></template>
         </n-switch>
@@ -76,10 +74,10 @@ const router = useRouter();
 
 const doctorForm = reactive({
   _id: "",
-  doctorName: "",
-  doctorPic: [],
-  doctorDescription: "",
-  doctorShow: false,
+  name: "",
+  image: [],
+  description: "",
+  online: false,
   idx: -1,
   show: false,
 });
@@ -101,7 +99,7 @@ const railStyle = ({ focused, checked }) => {
 };
 
 const rules = {
-  doctorName: {
+  name: {
     required: true,
     trigger: ["blur", "input"],
     validator(rule, value) {
@@ -119,7 +117,7 @@ const rules = {
       return true;
     },
   },
-  doctorDescription: {
+  description: {
     required: true,
     trigger: ["blur", "input"],
     validator(rule, value) {
@@ -133,7 +131,7 @@ const rules = {
       return true;
     },
   },
-  doctorPic: {
+  image: {
     required: true,
     validator(rule, value) {
       if (!value) {
@@ -154,7 +152,7 @@ const submitForm = async () => {
   const fd = new FormData();
   for (const key in doctorForm) {
     if (["_id", "idx", "show"].includes(key)) continue;
-    else if (key === "doctorPic") fd.append(key, doctorForm[key][0].file);
+    else if (key === "image") fd.append(key, doctorForm[key][0].file);
     else fd.append(key, doctorForm[key]);
   }
   try {

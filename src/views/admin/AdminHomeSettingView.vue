@@ -40,14 +40,18 @@
           }"
           @submit.prevent="submitForm"
         >
-          <n-form-item label="圖片標題" path="bannerTitle">
+          <n-form-item label="圖片標題" path="title">
             <n-input
-              v-model:value="bannerForm.bannerTitle"
+              v-model:value="bannerForm.title"
               placeholder="請輸入圖片標題"
             />
           </n-form-item>
-          <n-form-item label="圖片" path="bannerPic">
-            <n-upload v-model:file-list="bannerForm.bannerPic" accept="image/*">
+          <n-form-item label="圖片" path="image">
+            <n-upload
+              v-model:file-list="bannerForm.image"
+              accept="image/*"
+              :max="1"
+            >
               <n-button>上傳圖片</n-button>
             </n-upload>
           </n-form-item>
@@ -83,7 +87,7 @@ const createColumns = () => {
   return [
     {
       title: "標題",
-      key: "bannerTitle",
+      key: "title",
     },
     {
       title: "圖片",
@@ -95,7 +99,7 @@ const createColumns = () => {
             strong: true,
             tertiary: true,
             width: 100,
-            src: row.bannerPic,
+            src: row.image,
           },
           { default: () => "刪除" }
         );
@@ -140,8 +144,8 @@ const createColumns = () => {
 
 const bannerForm = reactive({
   _id: "",
-  bannerTitle: "",
-  bannerPic: [],
+  title: "",
+  image: [],
   idx: -1,
   showModal: false,
   show: false,
@@ -150,7 +154,7 @@ const bannerForm = reactive({
 const banners = reactive([]);
 
 const rules = {
-  bannerTitle: {
+  title: {
     required: true,
     trigger: ["blur", "input"],
     validator(rule, value) {
@@ -164,7 +168,7 @@ const rules = {
       return true;
     },
   },
-  bannerPic: {
+  image: {
     required: true,
     validator(rule, value) {
       if (!value) {
@@ -183,13 +187,13 @@ const rules = {
 const openModel = (_id, idx) => {
   bannerForm._id = _id;
   if (idx > -1) {
-    bannerForm.bannerTitle = banners[idx].bannerTitle;
-    bannerForm.bannerPic = banners[idx].bannerPic;
+    bannerForm.title = banners[idx].title;
+    bannerForm.image = banners[idx].image;
   } else {
-    bannerForm.bannerTitle = "";
+    bannerForm.title = "";
   }
   bannerForm.showModal = true;
-  bannerForm.bannerPic = [];
+  bannerForm.image = [];
   bannerForm.idx;
 };
 
@@ -198,9 +202,8 @@ const submitForm = async () => {
   const fd = new FormData();
   for (const key in bannerForm) {
     if (["_id", "idx", "show"].includes(key)) continue;
-    else if (key === "bannerPic") {
-      if (bannerForm.bannerPic.length > 0)
-        fd.append(key, bannerForm[key][0].file);
+    else if (key === "image") {
+      if (bannerForm.image.length > 0) fd.append(key, bannerForm[key][0].file);
     } else fd.append(key, bannerForm[key]);
   }
   try {
@@ -246,7 +249,7 @@ const delModel = (id) => {
     .then(async (result) => {
       await apiAuth.delete("/banners/" + id);
       if (result.isConfirmed) {
-        Swal.fire("刪除成功", "success");
+        Swal.fire("刪除成功", "成功");
       }
       init();
     })
@@ -277,6 +280,6 @@ const init = async () => {
 };
 init();
 
-const pagination = { pageSize: 8 };
+const pagination = { pageSize: 5 };
 const columns = createColumns({});
 </script>

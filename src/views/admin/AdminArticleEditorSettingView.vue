@@ -16,22 +16,22 @@
       @submit.prevent="submitForm"
     >
       <n-grid :cols="24" :x-gap="24">
-        <n-form-item-gi :span="24" label="選擇分類" path="articleCategory">
+        <n-form-item-gi :span="24" label="選擇分類" path="category">
           <n-select
-            v-model:value="articleForm.articleCategory"
+            v-model:value="articleForm.category"
             :options="articleCategories"
             placeholder="選擇分類"
           />
         </n-form-item-gi>
-        <n-form-item-gi :span="24" label="文章標題" path="articleTitle">
+        <n-form-item-gi :span="24" label="文章標題" path="title">
           <n-input
-            v-model:value="articleForm.articleTitle"
+            v-model:value="articleForm.title"
             placeholder="請輸入文章標題"
           />
         </n-form-item-gi>
-        <n-form-item-gi :span="12" label="文章日期" path="articleDate">
+        <n-form-item-gi :span="12" label="文章日期" path="date">
           <n-date-picker
-            v-model:value="articleForm.articleDate"
+            v-model:value="articleForm.date"
             type="datetime"
             clearable
           />
@@ -40,24 +40,21 @@
           :span="12"
           :rail-style="railStyle"
           label="是否上架"
-          path="articleShow"
+          path="online"
         >
-          <n-switch
-            :rail-style="railStyle"
-            v-model:value="articleForm.articleShow"
-          >
+          <n-switch :rail-style="railStyle" v-model:value="articleForm.online">
             <template #checked></template>
             <template #unchecked></template>
           </n-switch>
         </n-form-item-gi>
-        <n-form-item-gi :span="24" label="文章圖片" path="articlePic">
-          <n-upload v-model:file-list="articleForm.articlePic" accept="image/*">
+        <n-form-item-gi :span="24" label="文章圖片" path="image" :max="1">
+          <n-upload v-model:file-list="articleForm.image" accept="image/*">
             <n-button>上傳文章圖片</n-button>
           </n-upload>
         </n-form-item-gi>
-        <n-form-item-gi :span="24" label="文章描述" path="articleDescription">
+        <n-form-item-gi :span="24" label="文章描述" path="description">
           <n-input
-            v-model:value="articleForm.articleDescription"
+            v-model:value="articleForm.description"
             placeholder="Textarea"
             type="textarea"
             round
@@ -70,11 +67,11 @@
             <n-icon :component="TrashBinOutline" />
           </template>
         </n-form-item-gi>
-        <n-form-item-gi :span="24" label="文章內容" path="articleEditor">
+        <n-form-item-gi :span="24" label="文章內容" path="editor">
           <div>
             <QuillEditor
               toolbar="full"
-              v-model:content="articleForm.articleEditor"
+              v-model:content="articleForm.editor"
               contentType="html"
             />
           </div>
@@ -109,15 +106,15 @@ const router = useRouter();
 
 const articleForm = reactive({
   _id: "",
-  articleTitle: "",
-  articleDate: Date.now(),
-  articlePic: [],
-  articleDescription: "",
-  articleShow: false,
+  title: "",
+  date: Date.now(),
+  image: [],
+  description: "",
+  online: false,
   idx: -1,
   show: false,
-  articleEditor: "",
-  articleCategory: "",
+  editor: "",
+  category: "",
 });
 
 const railStyle = ({ focused, checked }) => {
@@ -137,7 +134,7 @@ const railStyle = ({ focused, checked }) => {
 };
 
 const rules = {
-  articleTitle: {
+  title: {
     required: true,
     trigger: ["blur", "input"],
     validator(rule, value) {
@@ -151,7 +148,7 @@ const rules = {
       return true;
     },
   },
-  articleDescription: {
+  description: {
     required: true,
     trigger: ["blur", "input"],
     validator(rule, value) {
@@ -165,7 +162,7 @@ const rules = {
       return true;
     },
   },
-  articlePic: {
+  img: {
     required: true,
     validator(rule, value) {
       if (!value) {
@@ -179,37 +176,37 @@ const rules = {
       return true;
     },
   },
-  articleEditor: {
+  editor: {
     required: true,
   },
-  articleCategory: {
+  category: {
     required: true,
   },
-  articleDate: {
+  date: {
     required: true,
   },
 };
 
 const articleCategories = [
   {
-    label: "齒顎矯正",
+    label: "口腔保健",
+    key: "oral hygiene",
+    value: "口腔保健",
+  },
+  {
+    label: "牙齒矯正",
     key: "orthodontics",
-    value: "齒顎矯正",
+    value: "牙齒矯正",
   },
   {
-    label: "人工植牙",
-    key: "dental implant",
-    value: "人工植牙",
+    label: "牙齒美容",
+    key: "dental beauty",
+    value: "牙齒美容",
   },
   {
-    label: "美容牙科",
-    key: "aesthetic",
-    value: "美容牙科",
-  },
-  {
-    label: "家庭牙科",
-    key: "family dentistry division",
-    value: "家庭牙科",
+    label: "食譜保健",
+    key: "recipe health",
+    value: "食譜保健",
   },
 ];
 
@@ -218,7 +215,7 @@ const submitForm = async () => {
   const fd = new FormData();
   for (const key in articleForm) {
     if (["_id", "idx", "show"].includes(key)) continue;
-    else if (key === "articlePic") fd.append(key, articleForm[key][0].file);
+    else if (key === "image") fd.append(key, articleForm[key][0].file);
     else fd.append(key, articleForm[key]);
   }
   try {

@@ -10,10 +10,10 @@
       <div class="team_row section">
         <n-card v-for="doctor in doctors" :key="doctor._id">
           <template #cover>
-            <img :src="doctor.doctorPic" />
+            <img :src="doctor.image" />
           </template>
-          <h2>{{ doctor.doctorName }}</h2>
-          <p>{{ doctor.doctorDescription }}</p>
+          <h2>{{ doctor.name }}</h2>
+          <p>{{ doctor.description }}</p>
         </n-card>
       </div>
     </section>

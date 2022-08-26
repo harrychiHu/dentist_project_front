@@ -593,7 +593,6 @@ img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100vh;
 }
 #adminContent .adminRight {
   display: -webkit-box;
@@ -604,6 +603,7 @@ img {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 85%;
+  float: right;
 }
 #adminContent .adminRight .avatarList {
   display: -webkit-box;
@@ -623,10 +623,18 @@ img {
 #adminContent .adminRight .adminWrap .adminSection {
   width: 90%;
   margin: auto;
+  margin-top: 3rem;
+}
+#adminContent .adminMiddle {
+  width: 15%;
 }
 #adminContent .adminLeft {
   background-color: #64C1C6;
   width: 15%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 #adminContent .adminLeft .logo {
   display: -webkit-box;
@@ -1042,6 +1050,9 @@ img {
 }
 #memberContent .memberRight .avatarList .avatarText {
   margin-right: 1rem;
+}
+#memberContent .memberRight .memberWrap {
+  margin-top: 3rem;
 }
 #memberContent .memberRight .memberWrap .memberSection {
   width: 90%;

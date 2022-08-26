@@ -1,11 +1,11 @@
 /* AdminLayout -------------------------------------------------------------------------------------------- */
 #adminContent{
   display: flex;
-  height: 100vh;
   .adminRight{
     display: flex;
     flex-direction: column;
     width: 85%;
+    float: right;
     .avatarList{
       display: flex;
       justify-content: flex-end;
@@ -19,12 +19,21 @@
       .adminSection{
         width: 90%;
         margin: auto;
+        margin-top: 3rem;
       }
     }
+  }
+  .adminMiddle{
+    width: 15%;
   }
   .adminLeft{
     background-color: $main;
     width: 15%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
     .logo{
       display: flex;
       justify-content: center;

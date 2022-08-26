@@ -94,7 +94,7 @@ const delModel = (id) => {
     .then(async (result) => {
       if (result.isConfirmed) {
         await apiAuth.delete("/users/" + id);
-        Swal.fire("刪除成功", "success");
+        Swal.fire("刪除成功", "成功");
       }
       init();
     })
@@ -121,7 +121,7 @@ const init = async () => {
 };
 init();
 
-const pagination = { pageSize: 5 };
+const pagination = { pageSize: 8 };
 
 const columns = createColumns({});
 </script>

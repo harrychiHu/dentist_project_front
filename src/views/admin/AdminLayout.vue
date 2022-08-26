@@ -9,6 +9,7 @@
           <n-menu :options="menuOptions" />
         </div>
       </div>
+      <div class="adminMiddle"></div>
       <div class="adminRight">
         <div class="avatarList">
           <p class="avatarText">歡迎您，{{ name }}</p>

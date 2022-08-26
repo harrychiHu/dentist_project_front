@@ -14,18 +14,18 @@
           :key="article._id"
         >
           <template #cover>
-            <img :src="article.articlePic" />
+            <img :src="article.image" />
           </template>
-          <h2>{{ article.articleTitle }}</h2>
+          <h2>{{ article.title }}</h2>
           <h3>
             <span
-              >{{ new Date(article.articleDate).toLocaleDateString() }} /
-              {{ article.articleCategory }}</span
+              >{{ new Date(article.date).toLocaleDateString() }} /
+              {{ article.category }}</span
             >
           </h3>
           <p>
             <n-ellipsis :tooltip="false" line-clamp="3">
-              {{ article.articleDescription }}
+              {{ article.description }}
             </n-ellipsis>
           </p>
           <div class="article_btn">
@@ -38,43 +38,6 @@
         </n-card>
       </div>
     </section>
-    <!-- <section id="articleContent">
-      <div class="article_row section">
-        <n-card
-          :bordered="false"
-          v-for="article in articles"
-          :key="article._id"
-        >
-          <template #cover>
-            <img :src="article.articlePic" />
-          </template>
-          <h2>{{ article.articleTitle }}</h2>
-          <p>
-            <span>{{
-              new Date(article.articleDate).toLocaleDateString()
-            }}</span>
-          </p>
-          <p>
-            <n-ellipsis :tooltip="false" line-clamp="3">
-              {{ article.articleDescription }}
-            </n-ellipsis>
-          </p>
-          <div class="article_btn">
-            <router-link :to="'/article-look/' + article._id">
-              <n-button
-                type="primary"
-                color="#64C1C6"
-                size="large"
-                @click="team"
-              >
-                Read More
-              </n-button>
-            </router-link>
-          </div>
-          <hr />
-        </n-card>
-      </div>
-    </section> -->
   </div>
 </template>
 <script setup>

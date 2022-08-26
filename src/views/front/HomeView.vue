@@ -5,7 +5,7 @@
         <img
           class="carousel-img"
           v-for="img in banners"
-          :src="img.bannerPic"
+          :src="img.image"
           :key="img._id"
         />
       </n-carousel>
@@ -75,13 +75,13 @@
         <div class="article_card">
           <n-card v-for="article in articles" :key="article._id">
             <template #cover>
-              <img :src="article.articlePic" />
+              <img :src="article.image" />
             </template>
             <h2>
-              {{ article.articleTitle }}
+              {{ article.title }}
             </h2>
             <n-ellipsis style="max-width: 240px" :tooltip="false">
-              {{ article.articleDescription }}
+              {{ article.description }}
             </n-ellipsis>
             <div class="article_btn">
               <router-link :to="'/article-look/' + article._id">

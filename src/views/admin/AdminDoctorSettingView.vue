@@ -24,7 +24,6 @@
       title="編輯醫師表單"
       size="huge"
       :bordered="false"
-      :segmented="segmented"
     >
       <n-form
         class="doctorForm"
@@ -40,20 +39,24 @@
         }"
         @submit.prevent="submitForm"
       >
-        <n-form-item label="醫師姓名" path="doctorName">
+        <n-form-item label="醫師姓名" path="name">
           <n-input
-            v-model:value="doctorForm.doctorName"
+            v-model:value="doctorForm.name"
             placeholder="請輸入醫師姓名"
           />
         </n-form-item>
-        <n-form-item label="醫師照片" path="doctorPic">
-          <n-upload v-model:file-list="doctorForm.doctorPic" accept="image/*">
+        <n-form-item label="醫師照片" path="image">
+          <n-upload
+            v-model:file-list="doctorForm.image"
+            accept="image/*"
+            :max="1"
+          >
             <n-button>上傳醫師照片</n-button>
           </n-upload>
         </n-form-item>
-        <n-form-item label="醫師介紹" path="doctorDescription">
+        <n-form-item label="醫師介紹" path="description">
           <n-input
-            v-model:value="doctorForm.doctorDescription"
+            v-model:value="doctorForm.description"
             placeholder="Textarea"
             type="textarea"
             round
@@ -66,11 +69,8 @@
             <n-icon :component="TrashBinOutline" />
           </template>
         </n-form-item>
-        <n-form-item :rail-style="railStyle" label="是否上架" path="doctorShow">
-          <n-switch
-            :rail-style="railStyle"
-            v-model:checked="doctorForm.doctorShow"
-          >
+        <n-form-item :rail-style="railStyle" label="是否上線" path="online">
+          <n-switch :rail-style="railStyle" v-model:value="doctorForm.online">
             <template #checked></template>
             <template #unchecked></template>
           </n-switch>
@@ -102,10 +102,10 @@ const bodyStyle = { width: "600px" };
 
 const doctorForm = reactive({
   _id: "",
-  doctorName: "",
-  doctorPic: [],
-  doctorDescription: "",
-  doctorShow: false,
+  name: "",
+  image: [],
+  description: "",
+  online: false,
   idx: -1,
   show: false,
   showModal: false,
@@ -114,13 +114,17 @@ const doctorForm = reactive({
 const openModel = (_id, idx) => {
   doctorForm._id = _id;
   if (idx > -1) {
-    doctorForm.doctorName = doctors[idx].doctorName;
-    doctorForm.doctorPic = doctors[idx].doctorPic;
-    doctorForm.doctorDescription = doctors[idx].doctorDescription;
-    doctorForm.doctorShow = doctors[idx].doctorShow;
+    doctorForm.name = doctors[idx].name;
+    doctorForm.image = doctors[idx].image;
+    doctorForm.description = doctors[idx].description;
+    doctorForm.online = doctors[idx].online;
+  } else {
+    doctorForm.name = "";
+    doctorForm.online = false;
+    doctorForm.description = "";
   }
   doctorForm.showModal = true;
-  doctorForm.doctorPic = [];
+  doctorForm.image = [];
   doctorForm.idx;
 };
 
@@ -128,13 +132,13 @@ const createColumns = () => {
   return [
     {
       title: "醫生名字",
-      key: "doctorName",
+      key: "name",
     },
     {
       title: "上線",
-      key: "doctorShow",
+      key: "online",
       render(row) {
-        if (row.doctorShow === false) {
+        if (row.online === false) {
           return h(
             NGradientText,
             {
@@ -211,7 +215,7 @@ const railStyle = ({ focused, checked }) => {
 };
 
 const rules = {
-  doctorName: {
+  name: {
     required: true,
     trigger: ["blur", "input"],
     validator(rule, value) {
@@ -229,7 +233,7 @@ const rules = {
       return true;
     },
   },
-  doctorDescription: {
+  description: {
     required: true,
     trigger: ["blur", "input"],
     validator(rule, value) {
@@ -243,7 +247,7 @@ const rules = {
       return true;
     },
   },
-  doctorPic: {
+  image: {
     required: true,
     validator(rule, value) {
       if (!value) {
@@ -264,9 +268,8 @@ const submitForm = async () => {
   const fd = new FormData();
   for (const key in doctorForm) {
     if (["_id", "idx", "show"].includes(key)) continue;
-    else if (key === "doctorPic") {
-      if (doctorForm.doctorPic.length > 0)
-        fd.append(key, doctorForm[key][0].file);
+    else if (key === "image") {
+      if (doctorForm.image.length > 0) fd.append(key, doctorForm[key][0].file);
     } else fd.append(key, doctorForm[key]);
   }
   try {
@@ -303,7 +306,7 @@ const delModel = (id) => {
     .then(async (result) => {
       if (result.isConfirmed) {
         await apiAuth.delete("/doctors/" + id);
-        Swal.fire("Deleted!", "Your file has been deleted.", "success");
+        Swal.fire("刪除成功", "成功");
       }
       init();
     })
@@ -334,6 +337,6 @@ const init = async () => {
 };
 init();
 
-const pagination = { pageSize: 5 };
+const pagination = { pageSize: 8 };
 const columns = createColumns({});
 </script>
