@@ -181,6 +181,13 @@
     font-size: 1rem;
   }
 }
+  .n-back-top .n-base-icon{
+    color: $title;
+  }
+  .n-back-top:hover .n-base-icon{
+    color: $main;
+  }
+
 
 
 @include md{

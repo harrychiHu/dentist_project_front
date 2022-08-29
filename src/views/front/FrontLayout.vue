@@ -263,6 +263,7 @@
         <p>©喜樂芽牙醫診所 2022</p>
       </div>
     </section>
+    <n-back-top :right="50" :bottom="80" />
   </div>
 </template>
 

@@ -227,6 +227,14 @@ img {
   font-size: 1rem;
 }
 
+.n-back-top .n-base-icon {
+  color: #595959;
+}
+
+.n-back-top:hover .n-base-icon {
+  color: #64C1C6;
+}
+
 @media (min-width: 768px) {
   #footer2 .contact {
     -webkit-box-orient: horizontal;
@@ -942,6 +950,9 @@ img {
   background-color: rgb(85, 138, 141);
   color: #fff;
   cursor: pointer;
+}
+#ArticleEditor .articleForm .ql-editor {
+  height: 20rem;
 }
 
 /* AdminHomeSettingView ----------------------------------------------------------------------------------------------------- */

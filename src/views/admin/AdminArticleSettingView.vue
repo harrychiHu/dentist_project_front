@@ -104,6 +104,7 @@
                 toolbar="full"
                 v-model:content="articleForm.editor"
                 contentType="html"
+                style="height: 20rem"
               />
             </div>
           </n-form-item-gi>
