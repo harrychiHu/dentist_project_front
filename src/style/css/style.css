@@ -1622,24 +1622,27 @@ img {
 #about_content .about_wrap .about_card {
   width: 80%;
 }
-#about_content .about_wrap .about_card h2 {
+#about_content .about_wrap .about_card .card {
+  margin-bottom: 1rem;
+}
+#about_content .about_wrap .about_card .card h2 {
   font-size: 1.5rem;
   color: #595959;
   position: relative;
   margin-bottom: 1rem;
 }
-#about_content .about_wrap .about_card h2::after {
+#about_content .about_wrap .about_card .card h2::after {
   content: "";
   width: 3rem;
   height: 0.1rem;
   background-color: #595959;
   position: absolute;
   bottom: -0.3rem;
-  left: -4%;
+  left: -5%;
   -webkit-transform: translateX(50%);
           transform: translateX(50%);
 }
-#about_content .about_wrap .about_card p {
+#about_content .about_wrap .about_card .card p {
   font-size: 1rem;
   line-height: 2rem;
   color: #959595;
