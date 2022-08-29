@@ -89,7 +89,7 @@ const menuOptions = [
         {
           href: "#admin/admin-doctor-setting",
         },
-        "醫生管理"
+        "醫師管理"
       ),
     key: "admin-doctor-setting",
   },
