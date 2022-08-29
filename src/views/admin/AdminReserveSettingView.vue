@@ -33,23 +33,23 @@
           }"
           @submit.prevent="submitForm"
         >
-          <n-form-item label="預約時間" path="reseverDate">
+          <n-form-item label="預約時間" path="date">
             <n-date-picker
-              v-model:value="reseverForm.reseverDate"
+              v-model:value="reseverForm.date"
               type="datetime"
               clearable
             />
           </n-form-item>
-          <n-form-item label="選擇服務" path="reseverCategory">
+          <n-form-item label="選擇服務" path="category">
             <n-select
-              v-model:value="reseverForm.reseverCategory"
+              v-model:value="reseverForm.category"
               placeholder="選擇服務"
               :options="reseverCategories"
             />
           </n-form-item>
-          <n-form-item label="備註" path="reseverDescription">
+          <n-form-item label="備註" path="description">
             <n-input
-              v-model:value="reseverForm.reseverDescription"
+              v-model:value="reseverForm.description"
               placeholder="可以在這寫下備註"
               type="textarea"
               :autosize="{
@@ -60,11 +60,11 @@
               <n-icon :component="TrashBinOutline" />
             </template>
           </n-form-item>
-          <n-form-item label="訂單狀況" path="reseverShow">
+          <n-form-item label="訂單狀況" path="situation">
             <n-select
-              v-model:value="reseverForm.reseverShow"
+              v-model:value="reseverForm.situation"
               placeholder="選擇訂單狀況"
-              :options="reseverShows"
+              :options="situations"
             />
           </n-form-item>
           <div
@@ -95,10 +95,10 @@ const formRef = ref(null);
 
 const reseverForm = reactive({
   _id: "",
-  reseverDate: Date.now(),
-  reseverCategory: "",
-  reseverDescription: "",
-  reseverShow: "",
+  date: Date.now(),
+  category: "",
+  description: "",
+  situation: "",
   idx: -1,
   show: false,
   showModal: false,
@@ -107,10 +107,10 @@ const reseverForm = reactive({
 const openModel = (_id, idx) => {
   reseverForm._id = _id;
   if (idx > -1) {
-    reseverForm.reseverDescription = resevers[idx].reseverDescription;
-    reseverForm.reseverShow = resevers[idx].reseverShow;
-    reseverForm.reseverCategory = resevers[idx].reseverCategory;
-    reseverForm.reseverDate = new Date(resevers[idx].reseverDate);
+    reseverForm.description = resevers[idx].description;
+    reseverForm.situation = resevers[idx].situation;
+    reseverForm.category = resevers[idx].category;
+    reseverForm.date = new Date(resevers[idx].date);
   }
   reseverForm.showModal = true;
   reseverForm.idx;
@@ -124,9 +124,9 @@ const createColumns = () => {
     },
     {
       title: "訂單狀況",
-      key: "reseverShow",
+      key: "situation",
       render(row) {
-        if (row.reseverShow === "等待") {
+        if (row.situation === "等待") {
           return h(
             NGradientText,
             {
@@ -135,7 +135,7 @@ const createColumns = () => {
             },
             { default: () => "等待" }
           );
-        } else if (row.reseverShow === "成功") {
+        } else if (row.situation === "成功") {
           return h(
             NGradientText,
             {
@@ -196,15 +196,15 @@ const createColumns = () => {
 const resevers = reactive([]);
 
 const rules = {
-  reseverDate: {
+  date: {
     required: true,
   },
-  reseverCategory: {
+  category: {
     required: true,
   },
 };
 
-const reseverShows = [
+const situations = [
   {
     label: "成功",
     key: "success",

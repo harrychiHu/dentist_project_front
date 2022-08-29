@@ -15,24 +15,24 @@
       }"
       @submit.prevent="submitForm"
     >
-      <n-form-item label="預約時間" path="reseverDate">
+      <n-form-item label="預約時間" path="date">
         <n-date-picker
-          v-model:value="reseverForm.reseverDate"
+          v-model:value="reseverForm.date"
           type="datetime"
           clearable
         />
       </n-form-item>
-      <n-form-item label="選擇服務" path="reseverCategory">
+      <n-form-item label="選擇服務" path="category">
         <n-select
-          v-model:value="reseverForm.reseverCategory"
+          v-model:value="reseverForm.category"
           placeholder="選擇服務"
           :options="reseverCategories"
         />
       </n-form-item>
 
-      <n-form-item label="備註" path="reseverDescription">
+      <n-form-item label="備註" path="description">
         <n-input
-          v-model:value="reseverForm.reseverDescription"
+          v-model:value="reseverForm.description"
           placeholder="可以在這寫下備註"
           type="textarea"
           :autosize="{
@@ -70,18 +70,18 @@ const size = ref("medium");
 
 const reseverForm = reactive({
   _id: "",
-  reseverDate: Date.now(),
-  reseverCategory: "",
-  reseverDescription: "",
+  date: Date.now(),
+  category: "",
+  description: "",
   idx: -1,
   show: false,
 });
 
 const rules = {
-  reseverDate: {
+  date: {
     required: true,
   },
-  reseverCategory: {
+  category: {
     required: true,
   },
 };
