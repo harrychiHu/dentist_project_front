@@ -43,7 +43,7 @@
         </template>
       </n-form-item>
       <n-form-item :rail-style="railStyle" label="是否上架" path="online">
-        <n-switch :rail-style="railStyle" v-model:checked="doctorForm.online">
+        <n-switch :rail-style="railStyle" v-model:value="doctorForm.online">
           <template #checked></template>
           <template #unchecked></template>
         </n-switch>
