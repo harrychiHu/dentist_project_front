@@ -49,26 +49,26 @@
             手機號碼：<span>{{ users.phoneNr }}</span>
           </p>
         </n-form-item>
-        <n-form-item label="預約時間" path="reseverDate">
+        <n-form-item label="預約時間" path="date">
           <n-date-picker
-            v-model:value="reseverForm.reseverDate"
+            v-model:value="reseverForm.date"
             type="datetime"
             clearable
             disabled="true"
           />
         </n-form-item>
-        <n-form-item label="選擇服務" path="reseverCategory">
+        <n-form-item label="選擇服務" path="category">
           <n-select
-            v-model:value="reseverForm.reseverCategory"
+            v-model:value="reseverForm.category"
             placeholder="選擇服務"
             :options="reseverCategories"
             disabled="true"
           />
         </n-form-item>
 
-        <n-form-item label="備註" path="reseverDescription">
+        <n-form-item label="備註" path="description">
           <n-input
-            v-model:value="reseverForm.reseverDescription"
+            v-model:value="reseverForm.description"
             placeholder="可以在這寫下備註"
             type="textarea"
             disabled="true"
@@ -102,9 +102,9 @@ const users = ref([]);
 
 const reseverForm = reactive({
   _id: "",
-  reseverDate: Date.now(),
-  reseverCategory: "",
-  reseverDescription: "",
+  date: Date.now(),
+  category: "",
+  description: "",
   idx: -1,
   show: false,
 });
@@ -112,11 +112,11 @@ const reseverForm = reactive({
 const openModel = (_id, idx) => {
   reseverForm._id = _id;
   if (idx > -1) {
-    reseverForm.reseverDate = resevers[idx].reseverDate;
-    reseverForm.reseverDescription = resevers[idx].reseverDescription;
-    reseverForm.reseverShow = resevers[idx].reseverShow;
-    reseverForm.reseverCategory = resevers[idx].reseverCategory;
-    reseverForm.reseverDate = new Date(resevers[idx].reseverDate);
+    reseverForm.date = resevers[idx].date;
+    reseverForm.description = resevers[idx].description;
+    reseverForm.situation = resevers[idx].situation;
+    reseverForm.category = resevers[idx].category;
+    reseverForm.date = new Date(resevers[idx].date);
   }
   reseverForm.showModal = true;
   reseverForm.idx;
@@ -134,9 +134,9 @@ const createColumns = () => {
     },
     {
       title: "預約狀況",
-      key: "reseverShow",
+      key: "situation",
       render(row) {
-        if (row.reseverShow === "等待") {
+        if (row.situation === "等待") {
           return h(
             NGradientText,
             {
@@ -145,7 +145,7 @@ const createColumns = () => {
             },
             { default: () => "等待" }
           );
-        } else if (row.reseverShow === "成功") {
+        } else if (row.situation === "成功") {
           return h(
             NGradientText,
             {
